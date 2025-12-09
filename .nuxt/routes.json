@@ -1,0 +1,272 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/about.vue",
+    "chunkName": "pages/about"
+  },
+  {
+    "name": "crmd",
+    "path": "/crmd",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/index.vue",
+    "chunkName": "pages/crmd/index"
+  },
+  {
+    "name": "customer_categorization",
+    "path": "/customer_categorization",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/customer_categorization/index.vue",
+    "chunkName": "pages/customer_categorization/index"
+  },
+  {
+    "name": "customer_complaints",
+    "path": "/customer_complaints",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/customer_complaints/index.vue",
+    "chunkName": "pages/customer_complaints/index"
+  },
+  {
+    "name": "customer_details_validation",
+    "path": "/customer_details_validation",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/customer_details_validation/index.vue",
+    "chunkName": "pages/customer_details_validation/index"
+  },
+  {
+    "name": "customer_mapping",
+    "path": "/customer_mapping",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/customer_mapping/index.vue",
+    "chunkName": "pages/customer_mapping/index"
+  },
+  {
+    "name": "customer_visitation",
+    "path": "/customer_visitation",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/customer_visitation/index.vue",
+    "chunkName": "pages/customer_visitation/index"
+  },
+  {
+    "name": "dashboard_ie_force",
+    "path": "/dashboard_ie_force",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/dashboard_ie_force.vue",
+    "chunkName": "pages/dashboard_ie_force"
+  },
+  {
+    "name": "dt_assigned",
+    "path": "/dt_assigned",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/dt_assigned.vue",
+    "chunkName": "pages/dt_assigned"
+  },
+  {
+    "name": "e_services",
+    "path": "/e_services",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/e_services/index.vue",
+    "chunkName": "pages/e_services/index"
+  },
+  {
+    "name": "energy_theft",
+    "path": "/energy_theft",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/energy_theft/index.vue",
+    "chunkName": "pages/energy_theft/index"
+  },
+  {
+    "name": "esr_form_history",
+    "path": "/esr_form_history",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/esr_form_history.vue",
+    "chunkName": "pages/esr_form_history"
+  },
+  {
+    "name": "forgot",
+    "path": "/forgot",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/forgot.vue",
+    "chunkName": "pages/forgot"
+  },
+  {
+    "name": "forms",
+    "path": "/forms",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/forms.vue",
+    "chunkName": "pages/forms"
+  },
+  {
+    "name": "idb_customer_mapping",
+    "path": "/idb_customer_mapping",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/idb_customer_mapping/index.vue",
+    "chunkName": "pages/idb_customer_mapping/index"
+  },
+  {
+    "name": "idb_customer_visitation",
+    "path": "/idb_customer_visitation",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/idb_customer_visitation/index.vue",
+    "chunkName": "pages/idb_customer_visitation/index"
+  },
+  {
+    "name": "ie_force",
+    "path": "/ie_force",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/ie_force.vue",
+    "chunkName": "pages/ie_force"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/login.vue",
+    "chunkName": "pages/login"
+  },
+  {
+    "name": "md-customer-ir",
+    "path": "/md-customer-ir",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/md-customer-ir.vue",
+    "chunkName": "pages/md-customer-ir"
+  },
+  {
+    "name": "menu",
+    "path": "/menu",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/menu.vue",
+    "chunkName": "pages/menu"
+  },
+  {
+    "name": "newly_installed_ppm",
+    "path": "/newly_installed_ppm",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/newly_installed_ppm/index.vue",
+    "chunkName": "pages/newly_installed_ppm/index"
+  },
+  {
+    "name": "nmd-activity-checklist",
+    "path": "/nmd-activity-checklist",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/nmd-activity-checklist.vue",
+    "chunkName": "pages/nmd-activity-checklist"
+  },
+  {
+    "name": "nmd-pre-survey-checklist",
+    "path": "/nmd-pre-survey-checklist",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/nmd-pre-survey-checklist.vue",
+    "chunkName": "pages/nmd-pre-survey-checklist"
+  },
+  {
+    "name": "non_inclusion_capture",
+    "path": "/non_inclusion_capture",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/non_inclusion_capture/index.vue",
+    "chunkName": "pages/non_inclusion_capture/index"
+  },
+  {
+    "name": "none_vending_cv",
+    "path": "/none_vending_cv",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/none_vending_cv/index.vue",
+    "chunkName": "pages/none_vending_cv/index"
+  },
+  {
+    "name": "payment-channel",
+    "path": "/payment-channel",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/payment-channel.vue",
+    "chunkName": "pages/payment-channel"
+  },
+  {
+    "name": "sent",
+    "path": "/sent",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/sent.vue",
+    "chunkName": "pages/sent"
+  },
+  {
+    "name": "sent_tracking",
+    "path": "/sent_tracking",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/sent_tracking.vue",
+    "chunkName": "pages/sent_tracking"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/signup.vue",
+    "chunkName": "pages/signup"
+  },
+  {
+    "name": "suspended_cv",
+    "path": "/suspended_cv",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/suspended_cv/index.vue",
+    "chunkName": "pages/suspended_cv/index"
+  },
+  {
+    "name": "token_request",
+    "path": "/token_request",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/token_request/index.vue",
+    "chunkName": "pages/token_request/index"
+  },
+  {
+    "name": "user-info",
+    "path": "/user-info",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/user-info.vue",
+    "chunkName": "pages/user-info"
+  },
+  {
+    "name": "vsm-checklist",
+    "path": "/vsm-checklist",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/vsm-checklist.vue",
+    "chunkName": "pages/vsm-checklist"
+  },
+  {
+    "name": "work_order_details",
+    "path": "/work_order_details",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/work_order_details.vue",
+    "chunkName": "pages/work_order_details"
+  },
+  {
+    "name": "crmd-account_reactivation",
+    "path": "/crmd/account_reactivation",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/account_reactivation.vue",
+    "chunkName": "pages/crmd/account_reactivation"
+  },
+  {
+    "name": "crmd-account_suspension",
+    "path": "/crmd/account_suspension",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/account_suspension.vue",
+    "chunkName": "pages/crmd/account_suspension"
+  },
+  {
+    "name": "crmd-correction_of_dials",
+    "path": "/crmd/correction_of_dials",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/correction_of_dials.vue",
+    "chunkName": "pages/crmd/correction_of_dials"
+  },
+  {
+    "name": "crmd-correction_of_lar_par",
+    "path": "/crmd/correction_of_lar_par",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/correction_of_lar_par.vue",
+    "chunkName": "pages/crmd/correction_of_lar_par"
+  },
+  {
+    "name": "crmd-sent",
+    "path": "/crmd/sent",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/sent.vue",
+    "chunkName": "pages/crmd/sent"
+  },
+  {
+    "name": "crmd-switch_to_actual_read",
+    "path": "/crmd/switch_to_actual_read",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/switch_to_actual_read.vue",
+    "chunkName": "pages/crmd/switch_to_actual_read"
+  },
+  {
+    "name": "crmd-switch_to_dormant",
+    "path": "/crmd/switch_to_dormant",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/switch_to_dormant.vue",
+    "chunkName": "pages/crmd/switch_to_dormant"
+  },
+  {
+    "name": "crmd-switch_to_quantitative",
+    "path": "/crmd/switch_to_quantitative",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/crmd/switch_to_quantitative.vue",
+    "chunkName": "pages/crmd/switch_to_quantitative"
+  },
+  {
+    "name": "e_services-billing_history",
+    "path": "/e_services/billing_history",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/e_services/billing_history.vue",
+    "chunkName": "pages/e_services/billing_history"
+  },
+  {
+    "name": "e_services-payment_history",
+    "path": "/e_services/payment_history",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/e_services/payment_history.vue",
+    "chunkName": "pages/e_services/payment_history"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/chizom/Dev/office/ie_technical_workforce/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]
