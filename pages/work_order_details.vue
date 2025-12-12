@@ -89,7 +89,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" v-if="work_order.reassignFlag =='N'">
                             <div class="col s6">
                                 <button class="btn green white-text btn-large"
                                     style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
