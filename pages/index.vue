@@ -260,6 +260,7 @@ export default {
         console.log(`Your error says -> ${error}`)
         M.toast({ html: `<b class="red-text">${error}</b>` })
         this.hidePreLoader = true
+        this.disabled = false
       }
 
 

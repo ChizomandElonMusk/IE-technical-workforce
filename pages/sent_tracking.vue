@@ -12,18 +12,6 @@
         
         <!-- form starts here -->
         <div class="row">
-            <div class="col s12 center red-text">
-                <h5 @click="copyTrackingId(tracking_id)">
-                    Tracking ID:
-                </h5>
-                <b @click="copyTrackingId(tracking_id)">
-                    {{ tracking_id }}
-                </b>
-
-                <h4 @click="copyTrackingId(tracking_id)">
-                    Copy
-                </h4>
-            </div>
 
 
             <div class="col s12 center">
@@ -79,7 +67,7 @@
       methods: {
         goToDashboard() {
             localStorage.setItem('tracking_id', '');
-            window.location.href = './dashboard_ie_force';
+            window.location.href = './menu';
         },
 
         async copyTrackingId(tracking_id) {

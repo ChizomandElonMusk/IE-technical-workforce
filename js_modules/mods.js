@@ -39,6 +39,102 @@ export async function getFaltTickets() {
 }
 
 
+// Function to fetch Undertaking Units based on the selected Business Unit (BU)
+export async function getUndertakingUnits(businessUnit) {
+  try {
+    const validToken = localStorage.getItem("token"); 
+    
+    // Construct the URL with the dynamic BU parameter
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getUTInfo?bu=${businessUnit}`;
+
+    const rawResponse = await fetch(
+      apiUrl,
+      {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${validToken}`,
+          "Auth": "Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6",
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+      }
+    );
+
+    const response = await rawResponse.json();
+    
+    console.log(`UT API Status for BU ${businessUnit}:`, rawResponse.status);
+    console.log(`UT API Response for BU ${businessUnit}:`, response);
+
+    // Handle non-200 responses and cases where the response might not be an array
+    if (rawResponse.status !== 200 || !Array.isArray(response)) {
+        if (typeof M !== 'undefined') {
+            M.toast({ html: `<b class="red-text">Error: Could not fetch UTs for ${businessUnit}.</b>` });
+        }
+        return []; // Return an empty array on failure
+    }
+
+    return response;
+
+  } catch (error) {
+    console.error("UT Fetch Error:", error);
+    if (typeof M !== 'undefined') {
+      M.toast({ html: `<b class="red-text">Network Error fetching UTs.</b>` });
+    }
+    return [];
+  }
+}
+
+
+
+// Function to fetch all top-level fault categories
+export async function getFaultCategories() {
+  try {
+    const validToken = localStorage.getItem("token"); 
+    
+    // API endpoint for fault categories
+    const apiUrl = "https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getFaultCategoryOptions";
+
+    const rawResponse = await fetch(
+      apiUrl,
+      {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${validToken}`,
+          "Auth": "Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6",
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+      }
+    );
+
+    const response = await rawResponse.json();
+    
+    console.log(`Fault Categories API Status:`, rawResponse.status);
+    console.log(`Fault Categories API Response:`, response);
+
+    // 1. Handle non-200 responses and ensure response is an array
+    if (rawResponse.status !== 200 || !Array.isArray(response)) {
+        if (typeof M !== 'undefined') {
+            M.toast({ html: `<b class="red-text">Error: Could not fetch fault categories.</b>` });
+        }
+        return [];
+    }
+
+    // 2. Map the response to extract only the 'name' property
+    // const categoryNames = response.map(category => category.name);
+
+    return response; // Returns an array of strings (e.g., ["BROKEN_POLE", "DT_FAULT", ...])
+
+  } catch (error) {
+    console.error("Fault Categories Fetch Error:", error);
+    if (typeof M !== 'undefined') {
+      M.toast({ html: `<b class="red-text">Network Error fetching fault categories.</b>` });
+    }
+    return [];
+  }
+}
+
+
 
 
 
@@ -134,6 +230,69 @@ export async function reasignFault(id, bu, ut, techLead) {
     return null;
   }
 }
+
+
+export async function materialRequiredSignal(id) {
+  try {
+    const validToken = localStorage.getItem("token"); 
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/materialRequiredById?id=${id}`;
+
+    const rawResponse = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${validToken}`,
+          "Auth": "Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6",
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+      }
+    );
+
+    
+
+    const response = await rawResponse.json();
+    console.log(response);
+    console.log(response);
+    console.log(response);
+    return response
+
+  } catch (error) {
+    console.error("Material required signal Error:", error);
+    return [];
+  }
+}
+
+// get materials by BU
+export async function getMaterialsByBU(bu) {
+  try {
+    const validToken = localStorage.getItem("token"); 
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getMaterialInfo?bu=${bu}`;
+
+    const rawResponse = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${validToken}`,
+          "Auth": "Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6",
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+      }
+    );
+
+    const response = await rawResponse.json();
+    return Array.isArray(response) ? response : [];
+
+  } catch (error) {
+    console.error("Material Fetch Error:", error);
+    return [];
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -399,7 +558,7 @@ export function generateRandomString() {
   return result;
 }
 
-export async function uploadImage(userId, accountNumber, docType, file) {
+export async function uploadImage(workOrder, docType, file) {
   // run an open minded check on the accountNumber/Meternumber on next version control (11th April 11:52 2025)
   // if (accountNumber == '' || empty(accountNumber)) {
   //   accountNumber = `IE_CWA_${generateRandomString()}`
@@ -410,20 +569,20 @@ export async function uploadImage(userId, accountNumber, docType, file) {
   // console.log(`this is a dummy account ${accountNumber}`);
 
   M.toast({ html: `<b class="yellow-text">Uploading </b>` });
-  console.log(userId, accountNumber, docType, file);
+  console.log('uploading image function called');
+  console.log(workOrder, docType, file);
 
   var formData = new FormData();
-  formData.append("userId", userId);
-  formData.append("accountNo", accountNumber);
+  formData.append("workOrder", workOrder);
   formData.append("docType", docType);
   formData.append("file", file);
 
   try {
     // 92802433505
-    // const rawResponse = await fetch("https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/upload/document",
+    const rawResponse = await fetch("https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/upload/document",
 
-    const rawResponse = await fetch(
-      "https://api.ikejaelectric.com/cwfrestapi/v1/api/v1/upload/document",
+    // const rawResponse = await fetch(
+    //   "https://api.ikejaelectric.com/technicalwfrestapi/v1/api/v1/upload/document",
       {
         method: "POST",
         headers: {
