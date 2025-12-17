@@ -1,6 +1,6 @@
 {
-  "appId": "com.ikejaelectric.cwf.ios",
-  "appName": "IE CWF",
+  "appId": "com.ikejaelectric.twf.ios",
+  "appName": "IE TWF",
   "webDir": "dist",
   "bundledWebRuntime": false,
   "plugins": {

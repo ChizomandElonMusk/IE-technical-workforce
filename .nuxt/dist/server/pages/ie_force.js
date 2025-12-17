@@ -1,35 +1,35 @@
 exports.ids = [33];
 exports.modules = {
 
-/***/ 138:
+/***/ 141:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/forms.73f2596.svg";
 
 /***/ }),
 
-/***/ 139:
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/history.d57035c.svg";
 
 /***/ }),
 
-/***/ 140:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/assigned_dt.fefd155.svg";
 
 /***/ }),
 
-/***/ 141:
+/***/ 144:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/e_service.7175cd3.svg";
 
 /***/ }),
 
-/***/ 196:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67,7 +67,7 @@ var render = function render() {
       "max-height": "50px"
     },
     attrs: {
-      "src": __webpack_require__(138),
+      "src": __webpack_require__(141),
       "alt": ""
     }
   }), _vm._v(" "), _c('h6', {
@@ -91,7 +91,7 @@ var render = function render() {
       "max-height": "50px"
     },
     attrs: {
-      "src": __webpack_require__(139),
+      "src": __webpack_require__(142),
       "alt": ""
     }
   }), _vm._v(" "), _c('h6', {
@@ -115,7 +115,7 @@ var render = function render() {
       "max-height": "50px"
     },
     attrs: {
-      "src": __webpack_require__(140),
+      "src": __webpack_require__(143),
       "alt": ""
     }
   }), _vm._v(" "), _c('h6', {
@@ -139,7 +139,7 @@ var render = function render() {
       "max-height": "50px"
     },
     attrs: {
-      "src": __webpack_require__(141),
+      "src": __webpack_require__(144),
       "alt": ""
     }
   }), _vm._v(" "), _c('h6', {

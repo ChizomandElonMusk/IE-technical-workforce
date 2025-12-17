@@ -19,7 +19,7 @@
           <b style="font-size: 20px; color: #757575;" class="">{{fullname}}</b>
         </div>
       </div> -->
-
+        <PreLoader v-if="!hidePreLoader" />
         <div class="row" v-if="hideworkOrderDetails == false">
             <div class="row">
 
@@ -243,7 +243,7 @@
         <div class="row" :class="{ 'hide': hideNoworkToolsForm }">
             <div class="col s12">
                 <h5 class="center">
-                    Upload Materials Used
+                    Proof of resolution
                 </h5>
                 <form @submit.prevent style="margin-top: 20px">
 
@@ -556,7 +556,7 @@
         <div class="row" :class="{ 'hide': hideWorkCompleteForm }">
             <div class="col s12">
                 <h5 class="center">
-                    Work Completed - Upload Materials Used
+                    Proof of resolution
                 </h5>
                 <form @submit.prevent style="margin-top: 20px">
 
@@ -668,8 +668,8 @@
 
                     <div class="row">
                         <div class="col s12 input-field">
-                            <textarea class=" materialize-textarea" name="" id="" placeholder="Reason for defaulting SLA (*)"
-                                v-model="sla_comments"></textarea>
+                            <textarea class=" materialize-textarea" name="" id=""
+                                placeholder="Reason for defaulting SLA (*)" v-model="sla_comments"></textarea>
                         </div>
                     </div>
 
@@ -788,11 +788,18 @@ import CustomSelect from '~/components/CustomSelect.vue'
 import imageCompression from 'browser-image-compression';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import PreLoader from '~/components/PreLoader.vue';
 export default {
     layout: 'admin_main',
 
+    components: {
+        PreLoader
+    },
+
     data() {
         return {
+            hidePreLoader: true,
+
             work_order: [],
             work_order_id: '',
             work_order_current_bu: '',
@@ -899,7 +906,8 @@ export default {
     methods: {
 
         async fetchFaultCategories() {
-            M.toast({ html: `Fetching Fault Categories...` });
+            // M.toast({ html: `Fetching Fault Categories...` });
+            this.hidePreLoader = false;
 
             const categories = await getFaultCategories();
 
@@ -913,17 +921,21 @@ export default {
                 this.$nextTick(() => {
                     window.M.FormSelect.init(document.querySelectorAll('select'));
                 });
+                this.hidePreLoader = true;
             } else {
                 M.toast({ html: 'No Fault Categories found.', classes: 'orange' });
+                this.hidePreLoader = true;
             }
         },
 
         async fetchWorkOrderDetails() {
+            this.hidePreLoader = false;
             // 1. Get the ID from the URL query
             const workOrderId = this.$route.query.id;
 
             if (!workOrderId) {
                 M.toast({ html: `<b class="red-text">Error: Work Order ID not found in URL.</b>` });
+                this.hidePreLoader = true;
                 return;
             }
 
@@ -938,16 +950,21 @@ export default {
                 this.work_order_id = details.workOrder;
                 this.work_order_current_bu = details.currentBu;
                 this.fault_id = details.id;
+                this.hidePreLoader = true;
             } else {
                 this.work_order = [];
+                this.hidePreLoader = true;
+                M.toast({ html: `<b class="red-text">Error: Could not fetch Work Order details.</b>` });
             }
         },
 
         async fetchMaterials(bu) {
+            this.hidePreLoader = false;
             const data = await getMaterialsByBU(bu);
             this.materialList = data;
             // Format the display for the dropdown: "Description (Stock: Qty)"
             this.items = data.map(m => `${m.description} (Stock: ${m.quantity})`);
+            this.hidePreLoader = true;
         },
 
         addItem() {
@@ -1013,25 +1030,30 @@ export default {
         },
 
         async yesWorkTools() {
+            this.hidePreLoader = false;
             const initiate = await materialRequiredSignal(this.fault_id)
             M.toast({ html: '<b class"black-text">Please wait...</b>', classes: 'black' });
             if (initiate.materialRequired === 'Y') {
                 M.toast({ html: 'Material Requisition is initiated for this Work Order.', classes: 'orange' });
                 this.hideworkToolsModal = true
                 this.hideYesworkToolsForm = false
+                this.hidePreLoader = true;
             } else {
                 M.toast({ html: 'There was an error initiating Material Requisition.', classes: 'red' });
                 this.hideworkToolsModal = false
                 this.hideYesworkToolsForm = true
+                this.hidePreLoader = true;
             }
 
 
         },
 
         async saveReassign(id, techLead) {
+            this.hidePreLoader = false;
             // 1. Validate inputs
             if (!this.business_unit || !this.undertaking_one || this.business_unit === 'Select BU' || this.undertaking_one === 'Select UT') {
                 M.toast({ html: 'Please select **BU**, **UT**, and **Technical Lead**.', classes: 'red' });
+                this.hidePreLoader = true;
                 return;
             }
 
@@ -1039,6 +1061,7 @@ export default {
 
             if (!id) {
                 M.toast({ html: 'Cannot reassign: Work Order ID is missing.', classes: 'red' });
+                this.hidePreLoader = true;
                 return;
             }
 
@@ -1056,10 +1079,12 @@ export default {
                 M.toast({ html: 'Work Order Reassigned Successfully! ✅', classes: 'green' });
                 this.hidereasignWorkOrder = true;
                 this.hideSuccess = false;
+                this.hidePreLoader = true;
 
             } else {
                 // On Failure (API returned an error or the status wasn't 'SUCCESS')
                 M.toast({ html: 'Reassignment failed. Please check your network.', classes: 'red' });
+                this.hidePreLoader = true;
 
             }
         },
@@ -1080,14 +1105,17 @@ export default {
         },
 
         async yesWorkMaterialReceived() {
+            this.hidePreLoader = false;
             let result = await acceptMaterial(this.fault_id)
             if (result.statusMsg === 'Success') {
                 M.toast({ html: 'Material Accepted Successfully!', classes: 'green' });
                 this.hideworkOrderDetails = true
                 this.hideAcceptMaterialModal = true
                 this.hideWorkCompleteForm = false
+                this.hidePreLoader = true;
             } else {
                 M.toast({ html: 'There was an error accepting the material.', classes: 'red' });
+                this.hidePreLoader = true; 
             }
         },
 
@@ -2309,7 +2337,7 @@ export default {
         },
 
         async submitNoMeterialNeededForm() {
-
+this.hidePreLoader = false;
 
 
             try {
@@ -2355,14 +2383,17 @@ export default {
                     localStorage.setItem('service_type', '')
                     localStorage.setItem('meter_number', '')
                     localStorage.setItem('account_number', '')
+                    this.hidePreLoader = true;
                 } else {
                     M.toast({ html: `<b class="green-text">${response.message}</b>` })
                     this.disabled_bool = false
+                    this.hidePreLoader = true;
                 }
             } catch (error) {
                 console.log(error)
                 M.toast({ html: `<b class="red-text">${error}</b>` })
                 this.disabled_bool = false
+                this.hidePreLoader = true;
             }
 
 
@@ -2372,7 +2403,7 @@ export default {
 
 
         async submitNoMeterialRequisitionForm() {
-
+this.hidePreLoader = false;
 
 
             try {
@@ -2419,14 +2450,17 @@ export default {
                     localStorage.setItem('service_type', '')
                     localStorage.setItem('meter_number', '')
                     localStorage.setItem('account_number', '')
+                    this.hidePreLoader = true;
                 } else {
                     M.toast({ html: `<b class="green-text">${response.message}</b>` })
                     this.disabled_bool = false
+                    this.hidePreLoader = true;
                 }
             } catch (error) {
                 console.log(error)
                 M.toast({ html: `<b class="red-text">${error}</b>` })
                 this.disabled_bool = false
+                this.hidePreLoader = true;
             }
 
 
@@ -2436,7 +2470,7 @@ export default {
 
         async submitWorkCompleteForm() {
 
-
+this.hidePreLoader = false;
 
             try {
 
@@ -2482,14 +2516,17 @@ export default {
                     localStorage.setItem('service_type', '')
                     localStorage.setItem('meter_number', '')
                     localStorage.setItem('account_number', '')
+                    this.hidePreLoader = true;
                 } else {
                     M.toast({ html: `<b class="green-text">${response.message}</b>` })
                     this.disabled_bool = false
+                    this.hidePreLoader = true;
                 }
             } catch (error) {
                 console.log(error)
                 M.toast({ html: `<b class="red-text">${error}</b>` })
                 this.disabled_bool = false
+                this.hidePreLoader = true;
             }
 
 

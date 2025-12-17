@@ -20,6 +20,7 @@
         </div>
       </div> -->
 
+      <PreLoader v-if="!hidePreLoader"/>
     <div class="row">
       <div class="row">
 
@@ -76,8 +77,12 @@
 
 <script>
 import { getFaltTickets } from '~/js_modules/mods.js'
+import PreLoader from '~/components/PreLoader.vue';
 export default {
   layout: 'admin_main',
+  components: {
+    PreLoader
+  },
 
   data() {
     return {
@@ -89,6 +94,8 @@ export default {
       work_order: [],
 
       scheduleList: [],
+
+      hidePreLoader: true,
 
     }
   },
@@ -117,8 +124,10 @@ export default {
     },
 
     async getTickets() {
+      this.hidePreLoader = false
       this.work_order = await getFaltTickets()
       console.log(this.work_order)
+      this.hidePreLoader = true
     }
   },
 

@@ -17,9 +17,6 @@ Element.isConnected()
 */
 
 
-/*! Capacitor: https://capacitorjs.com/ - MIT License */
-
-
 /*!
  * Vue.js v2.7.16
  * (c) 2014-2023 Evan You
@@ -66,3 +63,6 @@ Element.isConnected()
  * @param {Object=} options
  * @returns {Function}
  */
+
+
+/*! Capacitor: https://capacitorjs.com/ - MIT License */

@@ -1,51 +1,51 @@
-exports.ids = [51,1];
+exports.ids = [51,1,5];
 exports.modules = {
 
-/***/ 105:
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(168);
+var content = __webpack_require__(171);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(4).default
 module.exports.__inject__ = function (context) {
-  add("51ab5b27", content, true, context)
+  add("1362eade", content, true, context)
 };
 
 /***/ }),
 
-/***/ 166:
+/***/ 169:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/success.35342cf.svg";
 
 /***/ }),
 
-/***/ 167:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_a865c0b8_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(105);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_a865c0b8_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_a865c0b8_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_a865c0b8_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_a865c0b8_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_0f1bfb54_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(108);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_0f1bfb54_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_0f1bfb54_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_0f1bfb54_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_work_order_details_vue_vue_type_style_index_0_id_0f1bfb54_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 168:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".custom-select[data-v-a865c0b8]{background-color:#fff;border-radius:6px;color:#000;font-size:12px;padding:8px}.dropdown-content li>span[data-v-a865c0b8]{color:#f44336!important}.dropdown-content li.selected>span[data-v-a865c0b8]{background-color:#f44336!important;color:#fff!important}input.select-dropdown:focus+label[data-v-a865c0b8]{color:#f44336!important}input.select-dropdown[data-v-a865c0b8]:focus{border-bottom:1px solid #f44336!important;box-shadow:0 1px 0 0 #f44336!important}.on-top[data-v-a865c0b8]{position:relative;z-index:10}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".custom-select[data-v-0f1bfb54]{background-color:#fff;border-radius:6px;color:#000;font-size:12px;padding:8px}.dropdown-content li>span[data-v-0f1bfb54]{color:#f44336!important}.dropdown-content li.selected>span[data-v-0f1bfb54]{background-color:#f44336!important;color:#fff!important}input.select-dropdown:focus+label[data-v-0f1bfb54]{color:#f44336!important}input.select-dropdown[data-v-0f1bfb54]:focus{border-bottom:1px solid #f44336!important;box-shadow:0 1px 0 0 #f44336!important}.on-top[data-v-0f1bfb54]{position:relative;z-index:10}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
@@ -53,14 +53,14 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 225:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/work_order_details.vue?vue&type=template&id=a865c0b8&scoped=true
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/work_order_details.vue?vue&type=template&id=0f1bfb54&scoped=true
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
@@ -69,16 +69,16 @@ var render = function render() {
     staticStyle: {
       "padding-top": "20px"
     }
-  }, [_vm._ssrNode("<div class=\"row\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_c('nuxt-link', {
+  }, [_vm._ssrNode("<div class=\"row\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_c('nuxt-link', {
     staticClass: "red white-text btn",
     attrs: {
       "to": "../menu"
     }
-  }, [_vm._v("\n                Back\n            ")]), _vm._ssrNode(" <b class=\"grey-text btn disabled\" data-v-a865c0b8>Work Order Details</b>")], 2)]), _vm._ssrNode(" " + (_vm.hideworkOrderDetails == false ? "<div class=\"row\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12 center\" data-v-a865c0b8><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><span class=\"red-text\" data-v-a865c0b8><h6 style=\"font-weight: 800;\" data-v-a865c0b8>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.workOrder) + " ") + "<br data-v-a865c0b8>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.faultDescription) + "\n                                ") + "</h6></span> <hr style=\"color: #fff;\" data-v-a865c0b8> <br data-v-a865c0b8> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Feeder Band:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.feederBand) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Fault Type:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultType) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Fault Category:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultCategory) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Asset Name:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.assetName) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Technical Lead:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentTechnicalLead) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Current BU:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentBu) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Current UT:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentUt) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>DT:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.dt) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>DT N0:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.dtNo) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Fault Operations:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultOperations) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-a865c0b8><b data-v-a865c0b8>Severity:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.severity) + "\n                            ") + "</p> <br data-v-a865c0b8> <p style=\"margin-top: -30px;\" data-v-a865c0b8><b data-v-a865c0b8>Status:</b> <b class=\"red-text\" data-v-a865c0b8>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.status) + "\n                                ") + "</b></p></div></div> " + (_vm.work_order.reassignFlag == 'N' && _vm.work_order.requisitionStatus != 'INITIATED' && _vm.work_order.requisitionStatus != 'APPROVED' ? "<div class=\"row\" data-v-a865c0b8><div class=\"col s6\" data-v-a865c0b8><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Start Work\n                            </button></div> <div class=\"col s6\" data-v-a865c0b8><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Reassign\n                            </button></div></div>" : "<!---->") + " " + (_vm.work_order.requisitionStatus == 'APPROVED' && _vm.work_order.materialAccepted != 'Y' ? "<div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button class=\"btn green white-text btn-large col s12\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Accept Material\n                            </button></div></div>" : "<!---->") + " " + (_vm.work_order.materialAccepted == 'Y' && _vm.work_order.reassignFlag !== 'Y' ? "<div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button class=\"btn green white-text btn-large col s12\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Complete Work\n                            </button></div></div>" : "<!---->") + " <div class=\"row\" data-v-a865c0b8>" + (_vm.work_order.reassignFlag == 'Y' ? "<div class=\"col s12\" data-v-a865c0b8><b class=\"red-text\" data-v-a865c0b8>\n                                This work order has been reassigned and cannot be worked on.\n                            </b></div>" : "<!---->") + "</div> <div class=\"row\" data-v-a865c0b8>" + (_vm.work_order.requisitionStatus == 'INITIATED' ? "<div class=\"col s12\" data-v-a865c0b8><b class=\"red-text\" data-v-a865c0b8>\n                                This work order has a pending material requisition.\n                            </b></div>" : "<!---->") + "</div></div></div></div></div>" : "<!---->") + " " + (_vm.hideworkToolsModal == false ? "<div class=\"row\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12 center\" data-v-a865c0b8><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><span class=\"red-text center\" data-v-a865c0b8><h6 style=\"font-weight: 800;\" data-v-a865c0b8>\n                                    Do you need materials?\n                                </h6></span></div></div> <div class=\"row center\" style=\"margin-top: 20px;\" data-v-a865c0b8><div class=\"col s6\" data-v-a865c0b8><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Yes\n                            </button></div> <div class=\"col s6\" data-v-a865c0b8><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                No\n                            </button></div></div></div></div></div></div>" : "<!---->") + " " + (_vm.hideAcceptMaterialModal == false ? "<div class=\"row\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12 center\" data-v-a865c0b8><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><span class=\"red-text center\" data-v-a865c0b8><h6 style=\"font-weight: 800;\" data-v-a865c0b8>\n                                    Has work material been received?\n                                </h6></span></div></div> <div class=\"row center\" style=\"margin-top: 20px;\" data-v-a865c0b8><div class=\"col s6\" data-v-a865c0b8><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                Yes\n                            </button></div> <div class=\"col s6\" data-v-a865c0b8><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                                No\n                            </button></div></div></div></div></div></div>" : "<!---->") + " <div" + _vm._ssrClass("row", {
+  }, [_vm._v("\n                Back\n            ")]), _vm._ssrNode(" <b class=\"grey-text btn disabled\" data-v-0f1bfb54>Work Order Details</b>")], 2)]), _vm._ssrNode(" "), !_vm.hidePreLoader ? _c('PreLoader') : _vm._e(), _vm._ssrNode(" " + (_vm.hideworkOrderDetails == false ? "<div class=\"row\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12 center\" data-v-0f1bfb54><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><span class=\"red-text\" data-v-0f1bfb54><h6 style=\"font-weight: 800;\" data-v-0f1bfb54>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.workOrder) + " ") + "<br data-v-0f1bfb54>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.faultDescription) + "\n                                ") + "</h6></span> <hr style=\"color: #fff;\" data-v-0f1bfb54> <br data-v-0f1bfb54> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Feeder Band:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.feederBand) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Fault Type:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultType) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Fault Category:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultCategory) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Asset Name:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.assetName) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Technical Lead:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentTechnicalLead) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Current BU:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentBu) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Current UT:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.currentUt) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>DT:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.dt) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>DT N0:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.dtNo) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Fault Operations:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.faultOperations) + "\n                            ") + "</p> <p style=\"margin-top: -10px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Severity:</b>" + _vm._ssrEscape("\n                                " + _vm._s(_vm.work_order.severity) + "\n                            ") + "</p> <br data-v-0f1bfb54> <p style=\"margin-top: -30px;\" data-v-0f1bfb54><b data-v-0f1bfb54>Status:</b> <b class=\"red-text\" data-v-0f1bfb54>" + _vm._ssrEscape("\n                                    " + _vm._s(_vm.work_order.status) + "\n                                ") + "</b></p></div></div> " + (_vm.work_order.reassignFlag == 'N' && _vm.work_order.requisitionStatus != 'INITIATED' && _vm.work_order.requisitionStatus != 'APPROVED' ? "<div class=\"row\" data-v-0f1bfb54><div class=\"col s6\" data-v-0f1bfb54><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Start Work\n                            </button></div> <div class=\"col s6\" data-v-0f1bfb54><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Reassign\n                            </button></div></div>" : "<!---->") + " " + (_vm.work_order.requisitionStatus == 'APPROVED' && _vm.work_order.materialAccepted != 'Y' ? "<div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button class=\"btn green white-text btn-large col s12\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Accept Material\n                            </button></div></div>" : "<!---->") + " " + (_vm.work_order.materialAccepted == 'Y' && _vm.work_order.reassignFlag !== 'Y' ? "<div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button class=\"btn green white-text btn-large col s12\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Complete Work\n                            </button></div></div>" : "<!---->") + " <div class=\"row\" data-v-0f1bfb54>" + (_vm.work_order.reassignFlag == 'Y' ? "<div class=\"col s12\" data-v-0f1bfb54><b class=\"red-text\" data-v-0f1bfb54>\n                                This work order has been reassigned and cannot be worked on.\n                            </b></div>" : "<!---->") + "</div> <div class=\"row\" data-v-0f1bfb54>" + (_vm.work_order.requisitionStatus == 'INITIATED' ? "<div class=\"col s12\" data-v-0f1bfb54><b class=\"red-text\" data-v-0f1bfb54>\n                                This work order has a pending material requisition.\n                            </b></div>" : "<!---->") + "</div></div></div></div></div>" : "<!---->") + " " + (_vm.hideworkToolsModal == false ? "<div class=\"row\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12 center\" data-v-0f1bfb54><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><span class=\"red-text center\" data-v-0f1bfb54><h6 style=\"font-weight: 800;\" data-v-0f1bfb54>\n                                    Do you need materials?\n                                </h6></span></div></div> <div class=\"row center\" style=\"margin-top: 20px;\" data-v-0f1bfb54><div class=\"col s6\" data-v-0f1bfb54><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Yes\n                            </button></div> <div class=\"col s6\" data-v-0f1bfb54><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                No\n                            </button></div></div></div></div></div></div>" : "<!---->") + " " + (_vm.hideAcceptMaterialModal == false ? "<div class=\"row\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12 center\" data-v-0f1bfb54><div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><span class=\"red-text center\" data-v-0f1bfb54><h6 style=\"font-weight: 800;\" data-v-0f1bfb54>\n                                    Has work material been received?\n                                </h6></span></div></div> <div class=\"row center\" style=\"margin-top: 20px;\" data-v-0f1bfb54><div class=\"col s6\" data-v-0f1bfb54><button class=\"btn green white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                Yes\n                            </button></div> <div class=\"col s6\" data-v-0f1bfb54><button class=\"btn orange white-text btn-large\" style=\"background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                                No\n                            </button></div></div></div></div></div></div>" : "<!---->") + " <div" + _vm._ssrClass("row", {
     'hide': _vm.hideNoworkToolsForm
-  }) + " data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h5 class=\"center\" data-v-a865c0b8>\n                Upload Materials Used\n            </h5> <form style=\"margin-top: 20px\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat1\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat2\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat3\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat4\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row center\" data-v-a865c0b8></div> <div class=\"row center safe-area-bottom\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-a865c0b8>Completed</button></div></div></form></div></div> "), _vm._ssrNode("<div" + _vm._ssrClass("row", {
+  }) + " data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h5 class=\"center\" data-v-0f1bfb54>\n                Proof of resolution\n            </h5> <form style=\"margin-top: 20px\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat1\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat2\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat3\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat4\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row center\" data-v-0f1bfb54></div> <div class=\"row center safe-area-bottom\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-0f1bfb54>Completed</button></div></div></form></div></div> "), _vm._ssrNode("<div" + _vm._ssrClass("row", {
     'hide': _vm.hideYesworkToolsForm
-  }) + " data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<h5 class=\"center\" data-v-a865c0b8>\n                Material Requisition\n            </h5> "), _vm._ssrNode("<form style=\"margin-top: 20px\" data-v-a865c0b8>", "</form>", [_vm._ssrNode("<div class=\"row on-top\" style=\"margin-bottom: 30px;\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_c('CustomSelect', {
+  }) + " data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<h5 class=\"center\" data-v-0f1bfb54>\n                Material Requisition\n            </h5> "), _vm._ssrNode("<form style=\"margin-top: 20px\" data-v-0f1bfb54>", "</form>", [_vm._ssrNode("<div class=\"row on-top\" style=\"margin-bottom: 30px;\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_c('CustomSelect', {
     attrs: {
       "options": _vm.items,
       "default": 'Select an item'
@@ -90,11 +90,11 @@ var render = function render() {
       },
       expression: "selectedItem"
     }
-  })], 1), _vm._ssrNode(" <div class=\"col s12\" style=\"margin-top: 60px;\" data-v-a865c0b8><input type=\"text\" placeholder=\"Quantity\" onkeypress=\"return event.charCode >= 48 && event.charCode <= 57\"" + _vm._ssrAttr("value", _vm.quantity) + " class=\"input-field\" data-v-a865c0b8></div>")], 2), _vm._ssrNode(" <div class=\"row\" style=\"margin-top: 10px;\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button class=\"btn btn-large waves-effect waves-light red col s12\" data-v-a865c0b8>\n                            Add\n                        </button></div></div> <div class=\"row\" style=\"margin-top: 30px;\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8>" + (_vm.selectedList.length > 0 ? "<ul class=\"collection\" data-v-a865c0b8>" + _vm._ssrList(_vm.selectedList, function (item, index) {
-    return "<li class=\"collection-item\" data-v-a865c0b8>" + _vm._ssrEscape("\n                                " + _vm._s(item.description) + "\n                                - (" + _vm._s(item.quantity) + ")\n\n                                ") + " <a href=\"#!\" class=\"secondary-content\" data-v-a865c0b8><i class=\"material-icons red-text\" data-v-a865c0b8>close</i></a></li>";
-  }) + "</ul>" : "<!---->") + "</div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat1-yes\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat2-yes\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat3-yes\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat4-yes\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row center\" data-v-a865c0b8></div> <div class=\"row center safe-area-bottom\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-a865c0b8>Submit</button></div></div>")], 2)], 2)]), _vm._ssrNode(" <div" + _vm._ssrClass("row", {
+  })], 1), _vm._ssrNode(" <div class=\"col s12\" style=\"margin-top: 60px;\" data-v-0f1bfb54><input type=\"text\" placeholder=\"Quantity\" onkeypress=\"return event.charCode >= 48 && event.charCode <= 57\"" + _vm._ssrAttr("value", _vm.quantity) + " class=\"input-field\" data-v-0f1bfb54></div>")], 2), _vm._ssrNode(" <div class=\"row\" style=\"margin-top: 10px;\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button class=\"btn btn-large waves-effect waves-light red col s12\" data-v-0f1bfb54>\n                            Add\n                        </button></div></div> <div class=\"row\" style=\"margin-top: 30px;\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54>" + (_vm.selectedList.length > 0 ? "<ul class=\"collection\" data-v-0f1bfb54>" + _vm._ssrList(_vm.selectedList, function (item, index) {
+    return "<li class=\"collection-item\" data-v-0f1bfb54>" + _vm._ssrEscape("\n                                " + _vm._s(item.description) + "\n                                - (" + _vm._s(item.quantity) + ")\n\n                                ") + " <a href=\"#!\" class=\"secondary-content\" data-v-0f1bfb54><i class=\"material-icons red-text\" data-v-0f1bfb54>close</i></a></li>";
+  }) + "</ul>" : "<!---->") + "</div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat1-yes\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat2-yes\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat3-yes\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat4-yes\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row center\" data-v-0f1bfb54></div> <div class=\"row center safe-area-bottom\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-0f1bfb54>Submit</button></div></div>")], 2)], 2)]), _vm._ssrNode(" <div" + _vm._ssrClass("row", {
     'hide': _vm.hideWorkCompleteForm
-  }) + " data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h5 class=\"center\" data-v-a865c0b8>\n                Work Completed - Upload Materials Used\n            </h5> <form style=\"margin-top: 20px\" data-v-a865c0b8><div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat1-complete\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat2-complete\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat3-complete\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h6 class=\"red-text\" data-v-a865c0b8>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-a865c0b8><i class=\"material-icons white-text\" data-v-a865c0b8>camera_alt</i></button></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><img id=\"output-pic-of-mat4-complete\" class=\"responsive-img\" data-v-a865c0b8></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12 input-field\" data-v-a865c0b8><textarea name id placeholder=\"Further Remarks\" class=\"materialize-textarea\" data-v-a865c0b8>" + _vm._ssrEscape(_vm._s(_vm.further_remarks)) + "</textarea></div></div> <div class=\"row\" data-v-a865c0b8><div class=\"col s12 input-field\" data-v-a865c0b8><textarea name id placeholder=\"Reason for defaulting SLA (*)\" class=\"materialize-textarea\" data-v-a865c0b8>" + _vm._ssrEscape(_vm._s(_vm.sla_comments)) + "</textarea></div></div> <div class=\"row center\" data-v-a865c0b8></div> <div class=\"row center safe-area-bottom\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-a865c0b8>Complete work</button></div></div></form></div></div> "), _vm.hidereasignWorkOrder == false ? _vm._ssrNode("<div class=\"row\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><h5 data-v-a865c0b8>\n                        Reassign Work Order\n                    </h5></div></div> "), _vm._ssrNode("<div class=\"row\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_c('CustomSelect', {
+  }) + " data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h5 class=\"center\" data-v-0f1bfb54>\n                Proof of resolution\n            </h5> <form style=\"margin-top: 20px\" data-v-0f1bfb54><div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 1 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat1-complete\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 2 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat2-complete\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 3 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat3-complete\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h6 class=\"red-text\" data-v-0f1bfb54>\n                            Material 4 (*)\n                        </h6> <button class=\"btn red btn-large\" data-v-0f1bfb54><i class=\"material-icons white-text\" data-v-0f1bfb54>camera_alt</i></button></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><img id=\"output-pic-of-mat4-complete\" class=\"responsive-img\" data-v-0f1bfb54></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12 input-field\" data-v-0f1bfb54><textarea name id placeholder=\"Further Remarks\" class=\"materialize-textarea\" data-v-0f1bfb54>" + _vm._ssrEscape(_vm._s(_vm.further_remarks)) + "</textarea></div></div> <div class=\"row\" data-v-0f1bfb54><div class=\"col s12 input-field\" data-v-0f1bfb54><textarea name id placeholder=\"Reason for defaulting SLA (*)\" class=\"materialize-textarea\" data-v-0f1bfb54>" + _vm._ssrEscape(_vm._s(_vm.sla_comments)) + "</textarea></div></div> <div class=\"row center\" data-v-0f1bfb54></div> <div class=\"row center safe-area-bottom\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button" + _vm._ssrAttr("disabled", _vm.disabled_bool) + " class=\"btn btn-large red col s12\" style=\"margin-top: 20px;\" data-v-0f1bfb54>Complete work</button></div></div></form></div></div> "), _vm.hidereasignWorkOrder == false ? _vm._ssrNode("<div class=\"row\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><h5 data-v-0f1bfb54>\n                        Reassign Work Order\n                    </h5></div></div> "), _vm._ssrNode("<div class=\"row\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_c('CustomSelect', {
     attrs: {
       "options": ['ABULE-EGBA', 'AKOWONJO', 'IKEJA', 'IKORODU', 'OSHODI', 'SHOMOLU', 'CHQ'],
       "default": 'Select BU'
@@ -106,7 +106,7 @@ var render = function render() {
       },
       expression: "business_unit"
     }
-  })], 1)]), _vm._ssrNode(" <br data-v-a865c0b8> "), _vm._ssrNode("<div class=\"row\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_c('CustomSelect', {
+  })], 1)]), _vm._ssrNode(" <br data-v-0f1bfb54> "), _vm._ssrNode("<div class=\"row\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_c('CustomSelect', {
     attrs: {
       "options": _vm.undertakingOptions,
       "default": 'Select UT'
@@ -118,7 +118,7 @@ var render = function render() {
       },
       expression: "undertaking_one"
     }
-  })], 1)]), _vm._ssrNode(" <div class=\"row\" style=\"margin-top: 30px;\" data-v-a865c0b8><div class=\"col s12\" data-v-a865c0b8><button class=\"btn red white-text col s12 btn-large\" style=\"border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-a865c0b8>\n                        Submit\n                    </button></div></div>")], 2)]) : _vm._e(), _vm._ssrNode(" "), _vm.hideSuccess == false ? _vm._ssrNode("<div class=\"row\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-a865c0b8><div class=\"col s12 center\" data-v-a865c0b8><img" + _vm._ssrAttr("src", __webpack_require__(166)) + " alt class=\"responsive-img\" style=\"max-height: 100px;\" data-v-a865c0b8></div></div> <div class=\"row\" style=\"margin-top: 30px;\" data-v-a865c0b8><div class=\"col s12 green-text\" data-v-a865c0b8><b data-v-a865c0b8>Work Order Reassigned Successfully!</b> <br data-v-a865c0b8></div></div> "), _vm._ssrNode("<div class=\"row\" style=\"margin-top: 30px;\" data-v-a865c0b8>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-a865c0b8>", "</div>", [_c('nuxt-link', {
+  })], 1)]), _vm._ssrNode(" <div class=\"row\" style=\"margin-top: 30px;\" data-v-0f1bfb54><div class=\"col s12\" data-v-0f1bfb54><button class=\"btn red white-text col s12 btn-large\" style=\"border-radius: 7px; margin-top: -10px; margin-bottom: 0px;\" data-v-0f1bfb54>\n                        Submit\n                    </button></div></div>")], 2)]) : _vm._e(), _vm._ssrNode(" "), _vm.hideSuccess == false ? _vm._ssrNode("<div class=\"row\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"card-panel white black-text left-align\" style=\"padding: 15px; border-radius: 10px;\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-0f1bfb54><div class=\"col s12 center\" data-v-0f1bfb54><img" + _vm._ssrAttr("src", __webpack_require__(169)) + " alt class=\"responsive-img\" style=\"max-height: 100px;\" data-v-0f1bfb54></div></div> <div class=\"row\" style=\"margin-top: 30px;\" data-v-0f1bfb54><div class=\"col s12 green-text\" data-v-0f1bfb54><b data-v-0f1bfb54>Work Order Reassigned Successfully!</b> <br data-v-0f1bfb54></div></div> "), _vm._ssrNode("<div class=\"row\" style=\"margin-top: 30px;\" data-v-0f1bfb54>", "</div>", [_vm._ssrNode("<div class=\"col s12\" data-v-0f1bfb54>", "</div>", [_c('nuxt-link', {
     staticClass: "btn green white-text col s12 btn-large",
     staticStyle: {
       "background": "#fff",
@@ -133,10 +133,10 @@ var render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/work_order_details.vue?vue&type=template&id=a865c0b8&scoped=true
+// CONCATENATED MODULE: ./pages/work_order_details.vue?vue&type=template&id=0f1bfb54&scoped=true
 
 // EXTERNAL MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/work_order_details.vue?vue&type=script&lang=js
-var work_order_detailsvue_type_script_lang_js = __webpack_require__(72);
+var work_order_detailsvue_type_script_lang_js = __webpack_require__(75);
 
 // CONCATENATED MODULE: ./pages/work_order_details.vue?vue&type=script&lang=js
  /* harmony default export */ var pages_work_order_detailsvue_type_script_lang_js = (work_order_detailsvue_type_script_lang_js["a" /* default */]); 
@@ -149,7 +149,7 @@ var componentNormalizer = __webpack_require__(2);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(167)
+  var style0 = __webpack_require__(170)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -162,7 +162,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "a865c0b8",
+  "0f1bfb54",
   "3b74ba4a"
   
 )
@@ -170,7 +170,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var work_order_details = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents(component, {CustomSelect: __webpack_require__(44).default})
+installComponents(component, {PreLoader: __webpack_require__(49).default,CustomSelect: __webpack_require__(44).default})
 
 
 /***/ }),
@@ -1348,7 +1348,108 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 72:
+/***/ 48:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(51);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add CSS to SSR context
+var add = __webpack_require__(4).default
+module.exports.__inject__ = function (context) {
+  add("0f2b8f48", content, true, context)
+};
+
+/***/ }),
+
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/PreLoader.vue?vue&type=template&id=1f9d7abd&scoped=true
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c('div', {
+    staticClass: "preloader-overlay"
+  }, [_vm._ssrNode("<div class=\"preloader-wrapper big active\" data-v-1f9d7abd><div class=\"spinner-layer spinner-red-only\" data-v-1f9d7abd><div class=\"circle-clipper left\" data-v-1f9d7abd><div class=\"circle\" data-v-1f9d7abd></div></div> <div class=\"gap-patch\" data-v-1f9d7abd><div class=\"circle\" data-v-1f9d7abd></div></div> <div class=\"circle-clipper right\" data-v-1f9d7abd><div class=\"circle\" data-v-1f9d7abd></div></div></div></div>")]);
+};
+var staticRenderFns = [];
+
+// CONCATENATED MODULE: ./components/PreLoader.vue?vue&type=template&id=1f9d7abd&scoped=true
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/PreLoader.vue?vue&type=script&lang=js
+/* harmony default export */ var PreLoadervue_type_script_lang_js = ({
+  name: "PreloaderOverlay"
+});
+// CONCATENATED MODULE: ./components/PreLoader.vue?vue&type=script&lang=js
+ /* harmony default export */ var components_PreLoadervue_type_script_lang_js = (PreLoadervue_type_script_lang_js); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(2);
+
+// CONCATENATED MODULE: ./components/PreLoader.vue
+
+
+
+function injectStyles (context) {
+  
+  var style0 = __webpack_require__(50)
+if (style0.__inject__) style0.__inject__(context)
+
+}
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_PreLoadervue_type_script_lang_js,
+  render,
+  staticRenderFns,
+  false,
+  injectStyles,
+  "1f9d7abd",
+  "f190f66c"
+  
+)
+
+/* harmony default export */ var PreLoader = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreLoader_vue_vue_type_style_index_0_id_1f9d7abd_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreLoader_vue_vue_type_style_index_0_id_1f9d7abd_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreLoader_vue_vue_type_style_index_0_id_1f9d7abd_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreLoader_vue_vue_type_style_index_0_id_1f9d7abd_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PreLoader_vue_vue_type_style_index_0_id_1f9d7abd_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ 51:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, ".preloader-overlay[data-v-1f9d7abd]{align-items:center;background-color:rgba(0,0,0,.6);display:flex;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%;z-index:9999}", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1360,6 +1461,8 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /* harmony import */ var _capacitor_camera__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_capacitor_camera__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ionic_pwa_elements_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
 /* harmony import */ var _ionic_pwa_elements_loader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ionic_pwa_elements_loader__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_PreLoader_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49);
+
 
 
 
@@ -1367,8 +1470,12 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   layout: 'admin_main',
+  components: {
+    PreLoader: _components_PreLoader_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
   data() {
     return {
+      hidePreLoader: true,
       work_order: [],
       work_order_id: '',
       work_order_current_bu: '',
@@ -1466,9 +1573,8 @@ module.exports = ___CSS_LOADER_EXPORT___;
   },
   methods: {
     async fetchFaultCategories() {
-      M.toast({
-        html: `Fetching Fault Categories...`
-      });
+      // M.toast({ html: `Fetching Fault Categories...` });
+      this.hidePreLoader = false;
       const categories = await Object(_js_modules_mods_js__WEBPACK_IMPORTED_MODULE_0__[/* getFaultCategories */ "l"])();
       if (categories.length > 0) {
         // Store the full objects for ID lookup later
@@ -1479,20 +1585,24 @@ module.exports = ___CSS_LOADER_EXPORT___;
         this.$nextTick(() => {
           window.M.FormSelect.init(document.querySelectorAll('select'));
         });
+        this.hidePreLoader = true;
       } else {
         M.toast({
           html: 'No Fault Categories found.',
           classes: 'orange'
         });
+        this.hidePreLoader = true;
       }
     },
     async fetchWorkOrderDetails() {
+      this.hidePreLoader = false;
       // 1. Get the ID from the URL query
       const workOrderId = this.$route.query.id;
       if (!workOrderId) {
         M.toast({
           html: `<b class="red-text">Error: Work Order ID not found in URL.</b>`
         });
+        this.hidePreLoader = true;
         return;
       }
 
@@ -1506,15 +1616,22 @@ module.exports = ___CSS_LOADER_EXPORT___;
         this.work_order_id = details.workOrder;
         this.work_order_current_bu = details.currentBu;
         this.fault_id = details.id;
+        this.hidePreLoader = true;
       } else {
         this.work_order = [];
+        this.hidePreLoader = true;
+        M.toast({
+          html: `<b class="red-text">Error: Could not fetch Work Order details.</b>`
+        });
       }
     },
     async fetchMaterials(bu) {
+      this.hidePreLoader = false;
       const data = await Object(_js_modules_mods_js__WEBPACK_IMPORTED_MODULE_0__[/* getMaterialsByBU */ "o"])(bu);
       this.materialList = data;
       // Format the display for the dropdown: "Description (Stock: Qty)"
       this.items = data.map(m => `${m.description} (Stock: ${m.quantity})`);
+      this.hidePreLoader = true;
     },
     addItem() {
       if (!this.selectedItem || !this.quantity) {
@@ -1582,6 +1699,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
       this.hideNoworkToolsForm = false;
     },
     async yesWorkTools() {
+      this.hidePreLoader = false;
       const initiate = await Object(_js_modules_mods_js__WEBPACK_IMPORTED_MODULE_0__[/* materialRequiredSignal */ "s"])(this.fault_id);
       M.toast({
         html: '<b class"black-text">Please wait...</b>',
@@ -1594,6 +1712,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
         });
         this.hideworkToolsModal = true;
         this.hideYesworkToolsForm = false;
+        this.hidePreLoader = true;
       } else {
         M.toast({
           html: 'There was an error initiating Material Requisition.',
@@ -1601,15 +1720,18 @@ module.exports = ___CSS_LOADER_EXPORT___;
         });
         this.hideworkToolsModal = false;
         this.hideYesworkToolsForm = true;
+        this.hidePreLoader = true;
       }
     },
     async saveReassign(id, techLead) {
+      this.hidePreLoader = false;
       // 1. Validate inputs
       if (!this.business_unit || !this.undertaking_one || this.business_unit === 'Select BU' || this.undertaking_one === 'Select UT') {
         M.toast({
           html: 'Please select **BU**, **UT**, and **Technical Lead**.',
           classes: 'red'
         });
+        this.hidePreLoader = true;
         return;
       }
 
@@ -1620,6 +1742,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
           html: 'Cannot reassign: Work Order ID is missing.',
           classes: 'red'
         });
+        this.hidePreLoader = true;
         return;
       }
 
@@ -1636,12 +1759,14 @@ module.exports = ___CSS_LOADER_EXPORT___;
         });
         this.hidereasignWorkOrder = true;
         this.hideSuccess = false;
+        this.hidePreLoader = true;
       } else {
         // On Failure (API returned an error or the status wasn't 'SUCCESS')
         M.toast({
           html: 'Reassignment failed. Please check your network.',
           classes: 'red'
         });
+        this.hidePreLoader = true;
       }
     },
     doYouNeedWorkTools() {
@@ -1657,6 +1782,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
       this.hideWorkCompleteForm = false;
     },
     async yesWorkMaterialReceived() {
+      this.hidePreLoader = false;
       let result = await Object(_js_modules_mods_js__WEBPACK_IMPORTED_MODULE_0__[/* acceptMaterial */ "a"])(this.fault_id);
       if (result.statusMsg === 'Success') {
         M.toast({
@@ -1666,11 +1792,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
         this.hideworkOrderDetails = true;
         this.hideAcceptMaterialModal = true;
         this.hideWorkCompleteForm = false;
+        this.hidePreLoader = true;
       } else {
         M.toast({
           html: 'There was an error accepting the material.',
           classes: 'red'
         });
+        this.hidePreLoader = true;
       }
     },
     noWorkMaterialsNotReceived() {
@@ -2616,6 +2744,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
       this.location = `${this.long}, ${this.lat}`;
     },
     async submitNoMeterialNeededForm() {
+      this.hidePreLoader = false;
       try {
         this.disabled_bool = true;
         let userID = localStorage.getItem('userId');
@@ -2653,11 +2782,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
           localStorage.setItem('service_type', '');
           localStorage.setItem('meter_number', '');
           localStorage.setItem('account_number', '');
+          this.hidePreLoader = true;
         } else {
           M.toast({
             html: `<b class="green-text">${response.message}</b>`
           });
           this.disabled_bool = false;
+          this.hidePreLoader = true;
         }
       } catch (error) {
         console.log(error);
@@ -2665,9 +2796,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
           html: `<b class="red-text">${error}</b>`
         });
         this.disabled_bool = false;
+        this.hidePreLoader = true;
       }
     },
     async submitNoMeterialRequisitionForm() {
+      this.hidePreLoader = false;
       try {
         this.disabled_bool = true;
         let userID = localStorage.getItem('userId');
@@ -2706,11 +2839,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
           localStorage.setItem('service_type', '');
           localStorage.setItem('meter_number', '');
           localStorage.setItem('account_number', '');
+          this.hidePreLoader = true;
         } else {
           M.toast({
             html: `<b class="green-text">${response.message}</b>`
           });
           this.disabled_bool = false;
+          this.hidePreLoader = true;
         }
       } catch (error) {
         console.log(error);
@@ -2718,9 +2853,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
           html: `<b class="red-text">${error}</b>`
         });
         this.disabled_bool = false;
+        this.hidePreLoader = true;
       }
     },
     async submitWorkCompleteForm() {
+      this.hidePreLoader = false;
       try {
         this.disabled_bool = true;
         let userID = localStorage.getItem('userId');
@@ -2759,11 +2896,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
           localStorage.setItem('service_type', '');
           localStorage.setItem('meter_number', '');
           localStorage.setItem('account_number', '');
+          this.hidePreLoader = true;
         } else {
           M.toast({
             html: `<b class="green-text">${response.message}</b>`
           });
           this.disabled_bool = false;
+          this.hidePreLoader = true;
         }
       } catch (error) {
         console.log(error);
@@ -2771,6 +2910,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
           html: `<b class="red-text">${error}</b>`
         });
         this.disabled_bool = false;
+        this.hidePreLoader = true;
       }
     }
   },
