@@ -231,7 +231,7 @@ export async function reasignFault(id, bu, ut, techLead) {
   }
 }
 
-
+// get material required signal by ID
 export async function materialRequiredSignal(id) {
   try {
     const validToken = localStorage.getItem("token"); 
@@ -251,9 +251,6 @@ export async function materialRequiredSignal(id) {
     
 
     const response = await rawResponse.json();
-    console.log(response);
-    console.log(response);
-    console.log(response);
     return response
 
   } catch (error) {
@@ -288,6 +285,34 @@ export async function getMaterialsByBU(bu) {
   }
 }
 
+
+
+export async function acceptMaterial(id) {
+  try {
+    const validToken = localStorage.getItem("token"); 
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/materialaccepted?fault_id=${id}`;
+
+    const rawResponse = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${validToken}`,
+          "Auth": "Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6",
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
+      }
+    );
+
+    
+
+    const response = await rawResponse.json();
+    return response
+
+  } catch (error) {
+    console.error("Network Error:", error);
+    return [];
+  }
+}
 
 
 

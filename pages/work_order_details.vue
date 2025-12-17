@@ -89,8 +89,9 @@
                             </div>
                         </div>
 
-                        <!-- <div class="row" v-if="work_order.reassignFlag == 'N' && work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED'"> -->
-                        <div class="row">
+                        <div class="row"
+                            v-if="work_order.reassignFlag == 'N' && work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED'">
+
                             <div class="col s6">
                                 <button class="btn green white-text btn-large"
                                     style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
@@ -102,6 +103,29 @@
                                 <button class="btn orange white-text btn-large" @click="reassign()"
                                     style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;">
                                     Reassign
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row"
+                            v-if="work_order.requisitionStatus == 'APPROVED' && work_order.materialAccepted != 'Y'">
+
+                            <div class="col s12">
+                                <button class="btn green white-text btn-large col s12"
+                                    style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
+                                    @click="acceptMaterial()">
+                                    Accept Material
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row" v-if="work_order.materialAccepted == 'Y' && work_order.reassignFlag !== 'Y'">
+
+                            <div class="col s12">
+                                <button class="btn green white-text btn-large col s12"
+                                    style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
+                                    @click="completeWork()">
+                                    Complete Work
                                 </button>
                             </div>
                         </div>
@@ -130,6 +154,7 @@
 
 
 
+        <!-- form for DO YOU NEED WORK TOOLS starts here -->
         <div class="row" v-if="hideworkToolsModal == false">
             <div class="row">
 
@@ -167,6 +192,48 @@
             </div>
 
         </div>
+        <!-- form for DO YOU NEED WORK TOOLS ends here -->
+
+
+
+        <div class="row" v-if="hideAcceptMaterialModal == false">
+            <div class="row">
+
+                <div class="col s12 center">
+                    <div class="card-panel white black-text left-align" style="padding: 15px; border-radius: 10px;">
+
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="red-text center">
+                                    <h6 style="font-weight: 800;">
+                                        Has work material been received?
+                                    </h6>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row center" style="margin-top: 20px;">
+                            <div class="col s6">
+                                <button class="btn green white-text btn-large" @click="yesWorkMaterialReceived()"
+                                    style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;">
+                                    Yes
+                                </button>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn orange white-text btn-large" @click="noWorkMaterialsNotReceived()"
+                                    style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;">
+                                    No
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
 
 
 
@@ -323,8 +390,9 @@
                             <CustomSelect :options="items" :default="'Select an item'" v-model="selectedItem" />
                         </div>
                         <div class="col s12" style="margin-top: 60px;">
-                            <input type="text" placeholder="Quantity" v-model="quantity" class="input-field" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-        @input="quantity = quantity.replace(/[^0-9]/g, ''); if(quantity === '0') quantity = '';" />
+                            <input type="text" placeholder="Quantity" v-model="quantity" class="input-field"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                @input="quantity = quantity.replace(/[^0-9]/g, ''); if (quantity === '0') quantity = '';" />
                         </div>
                         <!-- <div class="col s4">
                             <button class="btn waves-effect waves-light red" @click="addItem">
@@ -374,7 +442,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 1 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_1()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_1_YES()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -384,7 +452,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat1" />
+                            <img class=" responsive-img" id="output-pic-of-mat1-yes" />
                         </div>
                     </div>
 
@@ -398,7 +466,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 2 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_2()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_2_YES()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -408,7 +476,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat2" />
+                            <img class=" responsive-img" id="output-pic-of-mat2-yes" />
                         </div>
                     </div>
 
@@ -423,7 +491,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 3 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_3()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_3_YES()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -433,7 +501,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat3" />
+                            <img class=" responsive-img" id="output-pic-of-mat3-yes" />
                         </div>
                     </div>
 
@@ -448,7 +516,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 4 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_4()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_4_YES()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -458,7 +526,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat4" />
+                            <img class=" responsive-img" id="output-pic-of-mat4-yes" />
                         </div>
                     </div>
 
@@ -502,7 +570,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 1 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_1()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_1_complete()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -512,7 +580,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat1" />
+                            <img class=" responsive-img" id="output-pic-of-mat1-complete" />
                         </div>
                     </div>
 
@@ -526,7 +594,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 2 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_2()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_2_complete()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -536,7 +604,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat2" />
+                            <img class=" responsive-img" id="output-pic-of-mat2-complete" />
                         </div>
                     </div>
 
@@ -551,7 +619,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 3 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_3()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_3_complete()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -561,7 +629,7 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat3" />
+                            <img class=" responsive-img" id="output-pic-of-mat3-complete" />
                         </div>
                     </div>
 
@@ -576,7 +644,7 @@
                                 <!-- Fomerly Additional Pic -->
                                 Material 4 (*)
                             </h6>
-                            <button class="btn red btn-large" @click="imagePickerForMaterial_4()">
+                            <button class="btn red btn-large" @click="imagePickerForMaterial_4_complete()">
                                 <i class="material-icons white-text">camera_alt</i>
                             </button>
                             <!-- <input type="file" accept="image/*" capture="environment" id="pic-of-the-service-wire-from-pole-to-metering-point" /> -->
@@ -586,17 +654,24 @@
                     <!-- output for pic of the service wire from pole to metering point -->
                     <div class="row">
                         <div class="col s12">
-                            <img class=" responsive-img" id="output-pic-of-mat4" />
+                            <img class=" responsive-img" id="output-pic-of-mat4-complete" />
                         </div>
                     </div>
 
 
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col s12 input-field">
-                            <textarea class=" materialize-textarea" name="" id="" placeholder="Further Remarks (*)"
+                            <textarea class=" materialize-textarea" name="" id="" placeholder="Further Remarks"
                                 v-model="further_remarks"></textarea>
                         </div>
-                    </div> -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 input-field">
+                            <textarea class=" materialize-textarea" name="" id="" placeholder="Reason for defaulting SLA (*)"
+                                v-model="sla_comments"></textarea>
+                        </div>
+                    </div>
 
 
 
@@ -609,7 +684,7 @@
                     <div class="row center safe-area-bottom">
                         <div class="col s12">
                             <button class="btn btn-large red col s12" style="margin-top: 20px;"
-                                @click="submitNoMeterialNeededForm" :disabled="disabled_bool">Completed</button>
+                                @click="submitWorkCompleteForm" :disabled="disabled_bool">Complete work</button>
                         </div>
                     </div>
 
@@ -708,7 +783,7 @@
 
 
 <script>
-import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, uploadImage, getCurrentPosition } from '~/js_modules/mods.js'
+import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, acceptMaterial, uploadImage, getCurrentPosition } from '~/js_modules/mods.js'
 import CustomSelect from '~/components/CustomSelect.vue'
 import imageCompression from 'browser-image-compression';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -747,6 +822,7 @@ export default {
             hideForm: true,
             disabled_bool: false,
             further_remarks: '',
+            sla_comments: '',
             quantity: '',
 
             selectedItem: "",
@@ -756,6 +832,7 @@ export default {
 
             hideworkOrderDetails: false,
             hideworkToolsModal: true,
+            hideAcceptMaterialModal: true,
             hideNoworkToolsForm: true,
             hideYesworkToolsForm: true,
             hidereasignWorkOrder: true,
@@ -991,6 +1068,34 @@ export default {
             this.hideworkToolsModal = false
             this.hideworkOrderDetails = true
         },
+
+        acceptMaterial() {
+            this.hideworkOrderDetails = true
+            this.hideAcceptMaterialModal = false
+        },
+
+        completeWork() {
+            this.hideworkOrderDetails = true
+            this.hideWorkCompleteForm = false
+        },
+
+        async yesWorkMaterialReceived() {
+            let result = await acceptMaterial(this.fault_id)
+            if (result.statusMsg === 'Success') {
+                M.toast({ html: 'Material Accepted Successfully!', classes: 'green' });
+                this.hideworkOrderDetails = true
+                this.hideAcceptMaterialModal = true
+                this.hideWorkCompleteForm = false
+            } else {
+                M.toast({ html: 'There was an error accepting the material.', classes: 'red' });
+            }
+        },
+
+        noWorkMaterialsNotReceived() {
+            this.hideworkOrderDetails = false
+            this.hideAcceptMaterialModal = true
+        },
+
 
 
         generateRandomString() {
@@ -1465,7 +1570,9 @@ export default {
                 useWebWorker: true
             }
             try {
+                console.log('checking to see if the id is called');
                 const output = document.getElementById('output-pic-of-mat1-yes');
+                console.log('here is the output', output);
 
                 const compressedFile = await imageCompression(imageFile, options);
                 // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
@@ -1794,6 +1901,403 @@ export default {
         },
 
 
+
+
+        async imagePickerForMaterial_1_complete() {
+            console.log('this is the workorderid:', this.work_order_id);
+
+            this.work_order_id = this.work_order_id.trim()
+            if (this.work_order_id) {
+                let random_str = this.generateRandomString()
+                let todays_date = new Date()
+                let day = todays_date.getDay()
+                let hour = todays_date.getHours()
+                let mins = todays_date.getMinutes()
+                let seconds = todays_date.getSeconds()
+                let millisecs = todays_date.getUTCMilliseconds()
+                // console.log(todays_date.getDay());
+                // console.log(todays_date.getUTCMilliseconds());
+                // M.toast({ html: `<b class="red-text">Random string: ${random_str}${day}${hour}${mins}${seconds}${millisecs}</b>` })
+                // this.account_number = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                // this.account_number = String(this.account_number)
+                this.random_id = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                this.random_id = String(this.random_id)
+                console.log(this.random_id);
+                console.log(this.random_id);
+
+                // Call the element loader after the app has been rendered the first time
+                defineCustomElements(window);
+
+                const image = await Camera.getPhoto({
+                    quality: 100,
+                    allowEditing: false,
+                    resultType: CameraResultType.Base64,
+                    source: CameraSource.Prompt
+                });
+
+
+                const rawData = window.atob(image.base64String);
+                const bytes = new Array(rawData.length);
+                for (var x = 0; x < rawData.length; x++) {
+                    bytes[x] = rawData.charCodeAt(x);
+                }
+                const arr = new Uint8Array(bytes);
+                const blob = new Blob([arr], { type: 'image/jpeg' });
+                console.log(blob)
+
+
+
+                this.doSomethingWithFilesimagePickerForMaterial_1_complete(blob)
+            }
+
+
+        },
+
+
+        async doSomethingWithFilesimagePickerForMaterial_1_complete(event) {
+            let imageFileName = this.generateRandomString()
+
+            const imageFile = event;
+
+
+            const options = {
+                maxSizeMB: 0.7,
+                initialQuality: 2,
+                maxWidthOrHeight: 500,
+                useWebWorker: true
+            }
+            try {
+                console.log('checking to see if the id is called');
+                const output = document.getElementById('output-pic-of-mat1-complete');
+                console.log('here is the output', output);
+
+                const compressedFile = await imageCompression(imageFile, options);
+                // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+                // console.log(`compressedFile size ${compressedFile.size / 50 / 50} MB`); // smaller than maxSizeMB
+
+                // console.log(`${compressedFile.size / 50 / 50} MB`)
+
+                this.mat1 = new File([compressedFile], imageFileName + `${compressedFile.type.replace('image/', '.')}`)
+                console.log(this.mat1)
+                if (compressedFile !== null) {
+                    output.src = URL.createObjectURL(compressedFile);
+                }
+
+                // console.log('account number ', this.account_number)
+                // console.log('pic_of_cwd ', this.pic_of_cwd)
+                // hello()
+                var xx = await uploadImage(this.work_order_id, 'Material_1', this.mat1)
+                console.log(xx)
+                // if (this.random_id != '') {
+                //     this.account_number = ''
+                // }
+
+
+
+
+
+            } catch (error) {
+                // // console.log(error);
+            }
+
+        },
+
+
+
+        async imagePickerForMaterial_2_complete() {
+
+            this.work_order_id = this.work_order_id.trim()
+            if (this.work_order_id) {
+                let random_str = this.generateRandomString()
+                let todays_date = new Date()
+                let day = todays_date.getDay()
+                let hour = todays_date.getHours()
+                let mins = todays_date.getMinutes()
+                let seconds = todays_date.getSeconds()
+                let millisecs = todays_date.getUTCMilliseconds()
+                // console.log(todays_date.getDay());
+                // console.log(todays_date.getUTCMilliseconds());
+                // M.toast({ html: `<b class="red-text">Random string: ${random_str}${day}${hour}${mins}${seconds}${millisecs}</b>` })
+                // this.account_number = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                // this.account_number = String(this.account_number)
+                this.random_id = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                this.random_id = String(this.random_id)
+                console.log(this.random_id);
+                console.log(this.random_id);
+
+                // Call the element loader after the app has been rendered the first time
+                defineCustomElements(window);
+
+                const image = await Camera.getPhoto({
+                    quality: 100,
+                    allowEditing: false,
+                    resultType: CameraResultType.Base64,
+                    source: CameraSource.Prompt
+                });
+
+
+                const rawData = window.atob(image.base64String);
+                const bytes = new Array(rawData.length);
+                for (var x = 0; x < rawData.length; x++) {
+                    bytes[x] = rawData.charCodeAt(x);
+                }
+                const arr = new Uint8Array(bytes);
+                const blob = new Blob([arr], { type: 'image/jpeg' });
+                console.log(blob)
+
+
+
+                this.doSomethingWithFilesimagePickerForMaterial_2_complete(blob)
+            }
+
+
+        },
+
+
+        async doSomethingWithFilesimagePickerForMaterial_2_complete(event) {
+            let imageFileName = this.generateRandomString()
+
+            const imageFile = event;
+
+
+            const options = {
+                maxSizeMB: 0.7,
+                initialQuality: 2,
+                maxWidthOrHeight: 500,
+                useWebWorker: true
+            }
+            try {
+                const output = document.getElementById('output-pic-of-mat2-complete');
+
+                const compressedFile = await imageCompression(imageFile, options);
+                // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+                // console.log(`compressedFile size ${compressedFile.size / 50 / 50} MB`); // smaller than maxSizeMB
+
+                // console.log(`${compressedFile.size / 50 / 50} MB`)
+
+                this.mat2 = new File([compressedFile], imageFileName + `${compressedFile.type.replace('image/', '.')}`)
+                console.log(this.mat2)
+                if (compressedFile !== null) {
+                    output.src = URL.createObjectURL(compressedFile);
+                }
+
+                // console.log('account number ', this.account_number)
+                // console.log('pic_of_cwd ', this.pic_of_cwd)
+                // hello()
+                var xx = await uploadImage(this.work_order_id, 'Material_2', this.mat2)
+                console.log(xx)
+                // if (this.random_id != '') {
+                //     this.account_number = ''
+                // }
+
+
+
+
+
+            } catch (error) {
+                // // console.log(error);
+            }
+
+        },
+
+
+
+        async imagePickerForMaterial_3_complete() {
+
+            this.work_order_id = this.work_order_id.trim()
+            if (this.work_order_id) {
+                let random_str = this.generateRandomString()
+                let todays_date = new Date()
+                let day = todays_date.getDay()
+                let hour = todays_date.getHours()
+                let mins = todays_date.getMinutes()
+                let seconds = todays_date.getSeconds()
+                let millisecs = todays_date.getUTCMilliseconds()
+                // console.log(todays_date.getDay());
+                // console.log(todays_date.getUTCMilliseconds());
+                // M.toast({ html: `<b class="red-text">Random string: ${random_str}${day}${hour}${mins}${seconds}${millisecs}</b>` })
+                // this.account_number = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                // this.account_number = String(this.account_number)
+                this.random_id = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                this.random_id = String(this.random_id)
+                console.log(this.random_id);
+                console.log(this.random_id);
+
+                // Call the element loader after the app has been rendered the first time
+                defineCustomElements(window);
+
+                const image = await Camera.getPhoto({
+                    quality: 100,
+                    allowEditing: false,
+                    resultType: CameraResultType.Base64,
+                    source: CameraSource.Prompt
+                });
+
+
+                const rawData = window.atob(image.base64String);
+                const bytes = new Array(rawData.length);
+                for (var x = 0; x < rawData.length; x++) {
+                    bytes[x] = rawData.charCodeAt(x);
+                }
+                const arr = new Uint8Array(bytes);
+                const blob = new Blob([arr], { type: 'image/jpeg' });
+                console.log(blob)
+
+
+
+                this.doSomethingWithFilesimagePickerForMaterial_3_complete(blob)
+            }
+
+
+        },
+
+
+        async doSomethingWithFilesimagePickerForMaterial_3_complete(event) {
+            let imageFileName = this.generateRandomString()
+
+            const imageFile = event;
+
+
+            const options = {
+                maxSizeMB: 0.7,
+                initialQuality: 2,
+                maxWidthOrHeight: 500,
+                useWebWorker: true
+            }
+            try {
+                const output = document.getElementById('output-pic-of-mat3-complete');
+
+                const compressedFile = await imageCompression(imageFile, options);
+                // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+                // console.log(`compressedFile size ${compressedFile.size / 50 / 50} MB`); // smaller than maxSizeMB
+
+                // console.log(`${compressedFile.size / 50 / 50} MB`)
+
+                this.mat3 = new File([compressedFile], imageFileName + `${compressedFile.type.replace('image/', '.')}`)
+                console.log(this.mat3)
+                if (compressedFile !== null) {
+                    output.src = URL.createObjectURL(compressedFile);
+                }
+
+                // console.log('account number ', this.account_number)
+                // console.log('pic_of_cwd ', this.pic_of_cwd)
+                // hello()
+                var xx = await uploadImage(this.work_order_id, 'Material_3', this.mat3)
+                console.log(xx)
+                // if (this.random_id != '') {
+                //     this.account_number = ''
+                // }
+
+
+
+
+
+            } catch (error) {
+                // // console.log(error);
+            }
+
+        },
+
+
+
+
+        async imagePickerForMaterial_4_complete() {
+
+            this.work_order_id = this.work_order_id.trim()
+            if (this.work_order_id) {
+                let random_str = this.generateRandomString()
+                let todays_date = new Date()
+                let day = todays_date.getDay()
+                let hour = todays_date.getHours()
+                let mins = todays_date.getMinutes()
+                let seconds = todays_date.getSeconds()
+                let millisecs = todays_date.getUTCMilliseconds()
+                // console.log(todays_date.getDay());
+                // console.log(todays_date.getUTCMilliseconds());
+                // M.toast({ html: `<b class="red-text">Random string: ${random_str}${day}${hour}${mins}${seconds}${millisecs}</b>` })
+                // this.account_number = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                // this.account_number = String(this.account_number)
+                this.random_id = `${random_str}${day}${hour}${mins}${seconds}${millisecs}`
+                this.random_id = String(this.random_id)
+                console.log(this.random_id);
+                console.log(this.random_id);
+
+                // Call the element loader after the app has been rendered the first time
+                defineCustomElements(window);
+
+                const image = await Camera.getPhoto({
+                    quality: 100,
+                    allowEditing: false,
+                    resultType: CameraResultType.Base64,
+                    source: CameraSource.Prompt
+                });
+
+
+                const rawData = window.atob(image.base64String);
+                const bytes = new Array(rawData.length);
+                for (var x = 0; x < rawData.length; x++) {
+                    bytes[x] = rawData.charCodeAt(x);
+                }
+                const arr = new Uint8Array(bytes);
+                const blob = new Blob([arr], { type: 'image/jpeg' });
+                console.log(blob)
+
+
+
+                this.doSomethingWithFilesimagePickerForMaterial_4_complete(blob)
+            }
+
+
+        },
+
+
+        async doSomethingWithFilesimagePickerForMaterial_4_complete(event) {
+            let imageFileName = this.generateRandomString()
+
+            const imageFile = event;
+
+
+            const options = {
+                maxSizeMB: 0.7,
+                initialQuality: 2,
+                maxWidthOrHeight: 500,
+                useWebWorker: true
+            }
+            try {
+                const output = document.getElementById('output-pic-of-mat4-complete');
+
+                const compressedFile = await imageCompression(imageFile, options);
+                // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+                // console.log(`compressedFile size ${compressedFile.size / 50 / 50} MB`); // smaller than maxSizeMB
+
+                // console.log(`${compressedFile.size / 50 / 50} MB`)
+
+                this.mat4 = new File([compressedFile], imageFileName + `${compressedFile.type.replace('image/', '.')}`)
+                console.log(this.mat4)
+                if (compressedFile !== null) {
+                    output.src = URL.createObjectURL(compressedFile);
+                }
+
+                // console.log('account number ', this.account_number)
+                // console.log('pic_of_cwd ', this.pic_of_cwd)
+                // hello()
+                var xx = await uploadImage(this.work_order_id, 'Material_4', this.mat4)
+                console.log(xx)
+                // if (this.random_id != '') {
+                //     this.account_number = ''
+                // }
+
+
+
+
+
+            } catch (error) {
+                // // console.log(error);
+            }
+
+        },
+
+
         // get longitude and latitude
         async printCurrentPosition() {
             const { long, lat } = await getCurrentPosition();
@@ -1929,6 +2433,69 @@ export default {
 
         },
 
+
+        async submitWorkCompleteForm() {
+
+
+
+            try {
+
+                this.disabled_bool = true
+                let userID = localStorage.getItem('userId')
+
+                console.log(this.fault_id);
+                console.log(this.location);
+                console.log(this.work_order_id);
+                console.log(userID);
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/workdoneCapture', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.token,
+                        'Auth': 'Bearer c49cf8b4-56bf-3bc6-bd6f-d2ae876cc2e6',
+
+                    },
+                    body: JSON.stringify({
+                        faultId: this.fault_id,
+                        location: this.location,
+                        workOrderId: this.work_order_id,
+                        userId: userID,
+                        picMaterial1: this.mat1.name,
+                        picMaterial2: this.mat2.name,
+                        picMaterial3: this.mat3.name,
+                        picMaterial4: this.mat4.name,
+                        comment: this.further_remarks,
+                        slaComment: this.sla_comments,
+                    }),
+                })
+
+                const response = await rawResponse.json()
+
+                console.log(response)
+
+                if (response.code == '00') {
+                    this.hideLoader = true
+                    localStorage.setItem('tracking_id', response.trackingId)
+                    this.$router.push('../sent_tracking')
+                    localStorage.setItem('service_type', '')
+                    localStorage.setItem('meter_number', '')
+                    localStorage.setItem('account_number', '')
+                } else {
+                    M.toast({ html: `<b class="green-text">${response.message}</b>` })
+                    this.disabled_bool = false
+                }
+            } catch (error) {
+                console.log(error)
+                M.toast({ html: `<b class="red-text">${error}</b>` })
+                this.disabled_bool = false
+            }
+
+
+
+        },
+
     },
 
     mounted() {
@@ -1997,6 +2564,6 @@ input.select-dropdown:focus {
 /* Ensure the row containing the dropdown has a higher stacking order */
 .on-top {
     position: relative;
-    z-index: 10; 
+    z-index: 10;
 }
 </style>
