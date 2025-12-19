@@ -260,10 +260,11 @@ export async function materialRequiredSignal(id) {
 }
 
 // get materials by BU
-export async function getMaterialsByBU(bu) {
+export async function getMaterialsByBU(bu, searchString = "") {
   try {
     const validToken = localStorage.getItem("token"); 
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getMaterialInfo?bu=${bu}`;
+    // Pass the searchString parameter to the API
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getMaterialInfo?bu=${bu}&searchString=${searchString}`;
 
     const rawResponse = await fetch(apiUrl, {
         method: "GET",
@@ -277,6 +278,7 @@ export async function getMaterialsByBU(bu) {
     );
 
     const response = await rawResponse.json();
+    console.log(response);
     return Array.isArray(response) ? response : [];
 
   } catch (error) {
@@ -316,6 +318,43 @@ export async function acceptMaterial(id) {
 
 
 
+
+
+/**
+ * Gets the valid SLA hours from the different band options
+ */
+export function getSlaHours(item) {
+  // Returns the first one that is not null/undefined/0
+  return item.bandASla || item.bandBSla || item.bandCDESla || 0;
+}
+
+/**
+ * Calculates the deadline timestamp based on creation date and hours
+ */
+export function calculateDeadline(createdDate, hours) {
+  if (!createdDate) return 0;
+  const start = new Date(createdDate).getTime();
+  return start + (hours * 60 * 60 * 1000);
+}
+
+/**
+ * Returns the D:H:M:S breakdown
+ */
+export function getTimerBreakdown(deadline, now) {
+  const distance = deadline - now;
+
+  if (distance <= 0) {
+    return { d: "00", h: "00", m: "00", s: "00", isExpired: true };
+  }
+
+  return {
+    d: Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0'),
+    h: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0'),
+    m: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0'),
+    s: Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0'),
+    isExpired: false
+  };
+}
 
 
 

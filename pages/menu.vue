@@ -20,7 +20,7 @@
         </div>
       </div> -->
 
-      <PreLoader v-if="!hidePreLoader"/>
+    <PreLoader v-if="!hidePreLoader" />
     <div class="row">
       <div class="row">
 
@@ -46,6 +46,31 @@
                 {{ value.status }}
               </b>
             </p>
+            <br>
+            <p style="margin-top: -30px;">
+              Status: <b class="yellow-text">
+                {{ value.faultCategory }}
+              </b>
+            </p>
+            <br>
+
+            <div v-if="!displayCountdown(8).isExpired">
+              <p style="margin-top: -10px;">
+                SLA countdown:
+                <b class="yellow-text">
+                  {{ displayCountdown(value).d }}d :
+                  {{ displayCountdown(value).h }}h :
+                  {{ displayCountdown(value).m }}m :
+                  {{ displayCountdown(value).s }}s
+                </b>
+              </p>
+            </div>
+            <div v-else>
+              <p style="margin-top: -10px;">
+                SLA Status: <b class="black-text"
+                  style="background: white; padding: 2px 5px; border-radius: 4px;">EXPIRED</b>
+              </p>
+            </div>
 
             <br>
             <p style="margin-top: -30px;">
@@ -76,7 +101,7 @@
 
 
 <script>
-import { getFaltTickets } from '~/js_modules/mods.js'
+import { getFaltTickets, getSlaHours, calculateDeadline, getTimerBreakdown } from '~/js_modules/mods.js'
 import PreLoader from '~/components/PreLoader.vue';
 export default {
   layout: 'admin_main',
@@ -86,6 +111,10 @@ export default {
 
   data() {
     return {
+      work_order: [], // Your API results
+      now: Date.now(),
+      timer: null,
+
       fullname: '',
 
       name: '',
@@ -128,7 +157,24 @@ export default {
       this.work_order = await getFaltTickets()
       console.log(this.work_order)
       this.hidePreLoader = true
+    },
+
+    displayCountdown(item) {
+      // 1. Determine which SLA band to use
+      const hours = getSlaHours(item);
+
+      // 2. Calculate the specific deadline for this work order
+      const deadline = calculateDeadline(item.dateEntered, hours);
+
+      // 3. Return the breakdown relative to the current time (this.now)
+      return getTimerBreakdown(deadline, this.now);
+    },
+
+    formatDate(date) {
+      if (!date) return "N/A";
+      return new Date(date).toLocaleString();
     }
+
   },
 
   mounted() {
@@ -136,6 +182,16 @@ export default {
     localStorage.setItem('meter_number', '')
     this.getTickets()
 
+
+    // Single interval to update all items in the list every second
+    this.timer = setInterval(() => {
+      this.now = Date.now();
+    }, 1000);
+
+  },
+
+  beforeDestroy() {
+    if (this.timer) clearInterval(this.timer);
   },
 
   created() {

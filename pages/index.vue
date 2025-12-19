@@ -67,8 +67,8 @@ export default {
       backgroundUrl,
       user_test: '',
       password_test: '',
-      username: 'aadigun',
-      password: 'xxxx',
+      username: 'cechehieuka',
+      password: '@@@1KingGod1234567890123',
       
       version_number: '1.0',
       disabled: false,

@@ -20,6 +20,20 @@
         </div>
       </div> -->
         <PreLoader v-if="!hidePreLoader" />
+        <div class="row">
+            <div class="col s12">
+                <div class="center" style="margin-top: 10px;">
+                    <span v-if="isOnline" class="badge green white-text" style="border-radius: 4px;">
+                        <i class="material-icons left" style="font-size: 14px; margin-top: 4px;">wifi</i>
+                        Connected ({{ connectionType }})
+                    </span>
+                    <span v-else class="badge red white-text" style="border-radius: 4px;">
+                        <i class="material-icons left" style="font-size: 14px; margin-top: 4px;">signal_wifi_off</i>
+                        Offline - Check Connection
+                    </span>
+                </div>
+            </div>
+        </div>
         <div class="row" v-if="hideworkOrderDetails == false">
             <div class="row">
 
@@ -382,10 +396,71 @@
                 <h5 class="center">
                     Material Requisition
                 </h5>
-                <form @submit.prevent style="margin-top: 20px">
+                <div v-if="isSearching" class="card-panel grey lighten-4" style="border-radius: 10px; padding: 20px;">
+                    <div class="row">
+                        <div class="col s9">
+                            <input type="text" v-model="searchQuery" placeholder="Search material name..."
+                                @keyup.enter="searchForItems">
+                        </div>
+                        <div class="col s3">
+                            <button class="btn red btn-large col s12" @click="searchForItems">
+                                <i class="material-icons">search</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div v-if="searchResults.length > 0" class="collection shadow-none">
+                        <a href="#!" class="collection-item black-text" v-for="res in searchResults" :key="res.item"
+                            :class="{ 'red lighten-5': selectedSearchResult?.item === res.item }"
+                            @click="selectFromSearch(res)" style="padding-bottom: 40px;">
+                            <b>{{ res.description }}</b>
+                            <br>
+                            <b class="badge red white-text left" data-badge-caption="in stock"
+                                style="border-radius: 6px; padding: 8px;">In-Stock: {{ res.quantity }}</b>
+                        </a>
+                    </div>
+
+                    <div class="row" v-if="selectedSearchResult" style="margin-top: 20px;">
+                        <div class="col s12">
+                            <p>Enter Quantity for: <b>{{ selectedSearchResult.description }}</b></p>
+                            <input type="text" placeholder="Quantity" v-model="quantity"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                @input="quantity = quantity.replace(/[^0-9]/g, ''); if (quantity === '0') quantity = '';" />
+                            <button class="btn green col s12" @click="addItem">Add to List</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-flat grey-text col s12 center" style="margin-top: 20px; margin-bottom: 40px;"
+                        @click="closeSearch">
+                        Close & Return to Form
+                    </button>
+                </div>
+
+                <div v-if="!isSearching">
+                    <div class="row">
+                        <div class="col s12">
+                            <button class="btn white red-text col s12 btn-large"
+                                style="border: 2px dashed red; height: 60px;" @click="openSearch">
+                                + Add Material Item
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" v-if="selectedList.length > 0">
+                        <div class="col s12">
+                            <ul class="collection">
+                                <li class="collection-item" v-for="(item, index) in selectedList" :key="index">
+                                    {{ item.description }} - <b>({{ item.quantity }})</b>
+                                    <a href="#!" class="secondary-content" @click="removeItem(index)">
+                                        <i class="material-icons red-text">close</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
 
-                    <div class="row on-top" style="margin-bottom: 30px;">
+                    <!-- <div class="row on-top" style="margin-bottom: 30px;">
                         <div class="col s12">
                             <CustomSelect :options="items" :default="'Select an item'" v-model="selectedItem" />
                         </div>
@@ -394,44 +469,42 @@
                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                                 @input="quantity = quantity.replace(/[^0-9]/g, ''); if (quantity === '0') quantity = '';" />
                         </div>
-                        <!-- <div class="col s4">
-                            <button class="btn waves-effect waves-light red" @click="addItem">
-                                Add
-                            </button>
-                        </div> -->
-                    </div>
+                    </div> -->
 
 
 
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col s12">
-                            <!-- Add Button -->
+                    <!-- <div class="row" style="margin-top: 10px;">
+                        <div class="col s12">]
                             <button class="btn btn-large waves-effect waves-light red col s12" @click="addItem">
                                 Add
                             </button>
 
 
                         </div>
-                    </div>
+                    </div> -->
 
 
-                    <div class="row" style="margin-top: 30px;">
+                    <!-- <div class="row" style="margin-top: 30px;">
                         <div class="col s12">
 
-                            <!-- Selected List -->
+                            
                             <ul class="collection" v-if="selectedList.length > 0">
                                 <li class="collection-item" v-for="(item, index) in selectedList" :key="index">
                                     {{ item.description }}
                                     - ({{ item.quantity }})
 
-                                    <!-- Optional: Remove button -->
+                                    
                                     <a href="#!" class="secondary-content" @click="removeItem(index)">
                                         <i class="material-icons red-text">close</i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
+
+
+
+
 
                     <div class="row">
                         <!-- Pic of the service wire from pole to metering point * -->
@@ -544,8 +617,7 @@
                                 @click="submitNoMeterialRequisitionForm" :disabled="disabled_bool">Submit</button>
                         </div>
                     </div>
-
-                </form>
+                </div>
             </div>
         </div>
         <!-- form for YES FOR WORK MATERIALS ends here -->
@@ -800,6 +872,15 @@ export default {
         return {
             hidePreLoader: true,
 
+            isOnline: true,
+            connectionType: 'unknown',
+
+
+            isSearching: false,
+            searchQuery: '',
+            searchResults: [],
+            selectedSearchResult: null,
+
             work_order: [],
             work_order_id: '',
             work_order_current_bu: '',
@@ -958,59 +1039,84 @@ export default {
             }
         },
 
-        async fetchMaterials(bu) {
+        // async fetchMaterials(bu) {
+        //     this.hidePreLoader = false;
+        //     const data = await getMaterialsByBU(bu);
+        //     this.materialList = data;
+        //     // Format the display for the dropdown: "Description (Stock: Qty)"
+        //     this.items = data.map(m => `${m.description} (Stock: ${m.quantity})`);
+        //     this.hidePreLoader = true;
+        // },
+
+        openSearch() {
+            this.isSearching = true;
+            this.searchResults = [];
+            this.searchQuery = '';
+        },
+
+        closeSearch() {
+            this.isSearching = false;
+            this.selectedSearchResult = null;
+            this.quantity = '';
+        },
+
+        async searchForItems() {
+            if (!this.searchQuery) return;
+
             this.hidePreLoader = false;
-            const data = await getMaterialsByBU(bu);
-            this.materialList = data;
-            // Format the display for the dropdown: "Description (Stock: Qty)"
-            this.items = data.map(m => `${m.description} (Stock: ${m.quantity})`);
+            // Get current BU from your work_order data
+            // const bu = this.work_order[0]?.currentBu || 'ABULE-EGBA'; 
+            const bu = this.work_order_current_bu;
+
+            const data = await getMaterialsByBU(bu, this.searchQuery);
+            this.searchResults = data;
             this.hidePreLoader = true;
+
+            if (data.length === 0) {
+                M.toast({ html: "No materials found", classes: "orange" });
+            }
+        },
+
+        selectFromSearch(item) {
+            this.selectedSearchResult = item;
+            this.quantity = ''; // Reset quantity for new selection
         },
 
         addItem() {
-            if (!this.selectedItem || !this.quantity) {
-                M.toast({ html: "Please select an item and enter quantity", classes: "orange" });
-                return;
-            }
-
-            // 1. Find the original object from the materialList based on the selected string
-            const originalMaterial = this.materialList.find(m =>
-                this.selectedItem.startsWith(m.description)
-            );
-
-            if (!originalMaterial) return;
-
-            // 2. Validation: Check if requested quantity > stock
+            const item = this.selectedSearchResult;
             const reqQty = parseInt(this.quantity);
-            if (reqQty > originalMaterial.quantity) {
-                M.toast({
-                    html: `Error: Only ${originalMaterial.quantity} in stock!`,
-                    classes: "red"
-                });
+
+            if (!item || !reqQty) {
+                M.toast({ html: "Please enter a valid quantity", classes: "orange" });
                 return;
             }
 
-            // 3. Validation: Prevent duplicate adds
-            if (this.selectedList.some(m => m.item === originalMaterial.item)) {
-                M.toast({ html: "Item already in list!", classes: "orange" });
+            // Validation: Check against stock
+            if (reqQty > item.quantity) {
+                M.toast({ html: `Error: Only ${item.quantity} available in stock!`, classes: "red" });
                 return;
             }
 
-            // 4. Construct the stockData object for the payload
-            const stockItem = {
-                item: originalMaterial.item,
-                description: originalMaterial.description,
+            // Validation: Prevent duplicates
+            if (this.selectedList.some(m => m.item === item.item)) {
+                M.toast({ html: "This item is already in your requisition list", classes: "orange" });
+                return;
+            }
+
+            // Add to the list
+            this.selectedList.push({
+                item: item.item,
+                description: item.description,
                 quantity: reqQty,
-                quantityInStock: originalMaterial.quantity,
-                store: originalMaterial.store
-            };
+                quantityInStock: item.quantity,
+                store: item.store
+            });
 
-            this.selectedList.push(stockItem);
+            M.toast({ html: "Added to list!", classes: "green" });
 
-            // Reset fields
-            this.selectedItem = '';
+            // Clear selection but keep search open for more items
+            this.selectedSearchResult = null;
             this.quantity = '';
-            M.toast({ html: "Item added to requisition", classes: "green" });
         },
 
         removeItem(index) {
@@ -1115,7 +1221,7 @@ export default {
                 this.hidePreLoader = true;
             } else {
                 M.toast({ html: 'There was an error accepting the material.', classes: 'red' });
-                this.hidePreLoader = true; 
+                this.hidePreLoader = true;
             }
         },
 
@@ -2337,7 +2443,7 @@ export default {
         },
 
         async submitNoMeterialNeededForm() {
-this.hidePreLoader = false;
+            this.hidePreLoader = false;
 
 
             try {
@@ -2403,7 +2509,7 @@ this.hidePreLoader = false;
 
 
         async submitNoMeterialRequisitionForm() {
-this.hidePreLoader = false;
+            this.hidePreLoader = false;
 
 
             try {
@@ -2470,7 +2576,7 @@ this.hidePreLoader = false;
 
         async submitWorkCompleteForm() {
 
-this.hidePreLoader = false;
+            this.hidePreLoader = false;
 
             try {
 
@@ -2550,7 +2656,19 @@ this.hidePreLoader = false;
 
         // this.fetchFaultCategories();
         this.printCurrentPosition();
-        this.fetchMaterials(this.work_order_current_bu);
+        // this.fetchMaterials(this.work_order_current_bu);
+
+        // Check initial status
+        this.isOnline = navigator.onLine;
+
+        // Listen for changes
+        window.addEventListener('online', () => { this.isOnline = true; });
+        window.addEventListener('offline', () => { this.isOnline = false; });
+
+        // Get connection type if supported (Chrome/Android)
+        if (navigator.connection) {
+            this.connectionType = navigator.connection.effectiveType; // returns '4g', '3g', etc.
+        }
     },
 
     created() {
