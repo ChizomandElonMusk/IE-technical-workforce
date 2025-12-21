@@ -20,12 +20,12 @@
         </div>
       </div> -->
         <PreLoader v-if="!hidePreLoader" />
-        <div class="row">
+        <!-- <div class="row">
             <div class="col s12">
                 <div class="center" style="margin-top: 10px;">
                     <span v-if="isOnline" class="badge green white-text" style="border-radius: 4px;">
                         <i class="material-icons left" style="font-size: 14px; margin-top: 4px;">wifi</i>
-                        Connected ({{ connectionType }})
+                        Connected ({{ connectionType }}) 
                     </span>
                     <span v-else class="badge red white-text" style="border-radius: 4px;">
                         <i class="material-icons left" style="font-size: 14px; margin-top: 4px;">signal_wifi_off</i>
@@ -33,7 +33,7 @@
                     </span>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row" v-if="hideworkOrderDetails == false">
             <div class="row">
 
