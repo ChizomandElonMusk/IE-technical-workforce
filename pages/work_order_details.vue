@@ -34,6 +34,28 @@
                 </div>
             </div>
         </div> -->
+        <div v-if="isDesktop" class="desktop-blocker">
+            <div class="container center-align">
+                <Logo />
+                <div class="card-panel" style="margin-top: 50px; border-radius: 15px; padding: 40px;">
+                    <i class="material-icons large red-text">phonelink_lock</i>
+                    <h4 class="red-text" style="font-weight: bold;">Mobile Access Only</h4>
+                    <p class="grey-text text-darken-2" style="font-size: 1.2rem;">
+                        The Technical Workforce portal is restricted to mobile devices for field operations.
+                    </p>
+                    <p>Please access this site via your <b>Smartphone Browser</b> or use the <b>Official Android
+                            App</b>.</p>
+
+                    <div style="margin-top: 30px;">
+                        <button class="btn-large red darken-2" style="border-radius: 8px; width: 100%;">
+                            Get the mobile app from the Admininistrator
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row" v-if="hideworkOrderDetails == false">
             <div class="row">
 
@@ -100,11 +122,28 @@
                                         {{ work_order.status }}
                                     </b>
                                 </p>
+                                <div v-if="!displayCountdown(work_order).isExpired">
+                                    <p style="margin-top: -10px;">
+                                        SLA countdown:
+                                        <b class="black-text">
+                                            {{ displayCountdown(work_order).d }}d :
+                                            {{ displayCountdown(work_order).h }}h :
+                                            {{ displayCountdown(work_order).m }}m :
+                                            {{ displayCountdown(work_order).s }}s
+                                        </b>
+                                    </p>
+                                </div>
+                                <div v-else>
+                                    <p style="margin-top: -10px;">
+                                        SLA Status: <b class="black-text"
+                                            style="background: white; padding: 2px 5px; border-radius: 4px;">EXPIRED</b>
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row"
-                            v-if="work_order.reassignFlag == 'N' && work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED'">
+                            v-if="work_order.reassignFlag == 'N' && work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED' && work_order.requisitionStatus != 'COMPLETED'">
 
                             <div class="col s6">
                                 <button class="btn green white-text btn-large"
@@ -121,15 +160,19 @@
                             </div>
                         </div>
 
-                        <div class="row"
-                            v-if="work_order.requisitionStatus == 'APPROVED' && work_order.materialAccepted != 'Y'">
+                        <!-- <div class="row"
+                            v-if="work_order.requisitionStatus == 'APPROVED' && work_order.materialAccepted != 'Y'"> -->
+                        <div class="row" v-if="work_order.requisitionStatus == 'APPROVED'">
 
                             <div class="col s12">
-                                <button class="btn green white-text btn-large col s12"
+                                <!-- <button class="btn green white-text btn-large col s12"
                                     style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
                                     @click="acceptMaterial()">
                                     Accept Material
-                                </button>
+                                </button> -->
+                                <p class="green-text center" style="font-weight: 600; margin-top: 20px;">
+                                    Material is ready for pickup
+                                </p>
                             </div>
                         </div>
 
@@ -632,6 +675,51 @@
                 </h5>
                 <form @submit.prevent style="margin-top: 20px">
 
+                    <div class="row">
+                        <div class="col s12 input-field">
+                            <textarea class=" materialize-textarea" name="" id="" placeholder="Work Done"
+                                style="height: 70px;" v-model="further_remarks"></textarea>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row" v-if="requisitionData && requisitionData.length > 0">
+                        <div class="col s12">
+                            <h6 class="red-text"><b>Materials Consumption (*)</b></h6>
+                            <p class="grey-text" style="font-size: 0.85rem; margin-top: -5px;">Record the actual
+                                quantity used for this job.</p>
+
+                            <ul class="collection"
+                                style="border-radius: 8px; border: 1px solid #e0e0e0; overflow: visible;">
+                                <li class="collection-item" v-for="(mat, index) in requisitionData" :key="index"
+                                    style="padding: 15px;">
+                                    <span class="title" style="font-weight: bold; color: #333;">{{ mat.description
+                                    }}</span>
+
+                                    <div class="row" style="margin-top: 10px; margin-bottom: 0;">
+                                        <div class="col s6">
+                                            <small class="grey-text">Requested: {{ mat.quantity }}</small>
+                                        </div>
+                                        <div class="col s6">
+                                            <input type="number" placeholder="Qty Used" v-model="mat.quantityUsed"
+                                                @input="validateSingleRow(mat)"
+                                                style="border: 1px solid #ccc; height: 35px; border-radius: 4px; padding: 0 10px; box-sizing: border-box; display: block; width: 100%;" />
+                                        </div>
+                                    </div>
+
+                                    <div v-if="Number(mat.quantityUsed) > Number(mat.quantity)" class="red-text"
+                                        style="font-size: 0.75rem; margin-top: 5px;">
+                                        Error: Cannot exceed received quantity ({{ mat.quantity }})
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
 
                     <div class="row">
                         <!-- Pic of the service wire from pole to metering point * -->
@@ -731,14 +819,12 @@
                     </div>
 
 
-                    <div class="row">
-                        <div class="col s12 input-field">
-                            <textarea class=" materialize-textarea" name="" id="" placeholder="Further Remarks"
-                                v-model="further_remarks"></textarea>
-                        </div>
-                    </div>
 
-                    <div class="row">
+
+                    <div class="row" v-if="!displayCountdown(work_order).isExpired">
+                        
+                    </div>
+                    <div class="row" v-else>
                         <div class="col s12 input-field">
                             <textarea class=" materialize-textarea" name="" id=""
                                 placeholder="Reason for defaulting SLA (*)" v-model="sla_comments"></textarea>
@@ -800,7 +886,7 @@
                     <div class="col s12">
                         <button class="btn red white-text col s12 btn-large"
                             style="border-radius: 7px; margin-top: -10px; margin-bottom: 0px;"
-                            @click="saveReassign(work_order.id, work_order.currentBu, work_order.currentUt)">
+                            @click="saveReassign(work_order.id, work_order.currentUt)">
                             Submit
                         </button>
                     </div>
@@ -855,7 +941,7 @@
 
 
 <script>
-import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, acceptMaterial, uploadImage, getCurrentPosition } from '~/js_modules/mods.js'
+import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, acceptMaterial, uploadImage, getCurrentPosition, getSlaHours, calculateDeadline, getTimerBreakdown } from '~/js_modules/mods.js'
 import CustomSelect from '~/components/CustomSelect.vue'
 import imageCompression from 'browser-image-compression';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -870,7 +956,14 @@ export default {
 
     data() {
         return {
+            isDesktop: false,
             hidePreLoader: true,
+            requisitionData: [],
+
+            now: Date.now(),
+            timer: null,
+            work_order: [],
+
 
             isOnline: true,
             connectionType: 'unknown',
@@ -986,6 +1079,22 @@ export default {
 
     methods: {
 
+        displayCountdown(item) {
+            // 1. Determine which SLA band to use
+            const hours = getSlaHours(item);
+
+            // 2. Calculate the specific deadline for this work order
+            const deadline = calculateDeadline(item.dateEntered, hours);
+
+            // 3. Return the breakdown relative to the current time (this.now)
+            return getTimerBreakdown(deadline, this.now);
+        },
+
+        formatDate(date) {
+            if (!date) return "N/A";
+            return new Date(date).toLocaleString();
+        },
+
         async fetchFaultCategories() {
             // M.toast({ html: `Fetching Fault Categories...` });
             this.hidePreLoader = false;
@@ -1031,6 +1140,8 @@ export default {
                 this.work_order_id = details.workOrder;
                 this.work_order_current_bu = details.currentBu;
                 this.fault_id = details.id;
+                let requisition_data = details.requisitionData
+                this.initializeRequisitionData(requisition_data);
                 this.hidePreLoader = true;
             } else {
                 this.work_order = [];
@@ -2456,7 +2567,7 @@ export default {
                 console.log(this.work_order_id);
                 console.log(userID);
                 // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/nomaterialrequired', {
+                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/nomaterialrequired', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2517,12 +2628,13 @@ export default {
                 this.disabled_bool = true
                 let userID = localStorage.getItem('userId')
 
+                console.log(this.selectedList);
                 console.log(this.fault_id);
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
                 // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/materialrequisition', {
+                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/materialrequisition', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2574,7 +2686,87 @@ export default {
         },
 
 
+
+
+
+
+        // 1. Logic to prepare data on mount or after API fetch
+        initializeRequisitionData(dataFromApi) {
+            this.requisitionData = dataFromApi.map(item => ({
+                ...item,
+                quantityUsed: '' // Pre-fill with empty string to enable reactivity
+            }));
+        },
+
+        // 2. Real-time check as user types
+        validateSingleRow(mat) {
+            if (mat.quantityUsed !== '' && mat.quantityUsed !== null) {
+                mat.quantityUsed = Number(mat.quantityUsed);
+            }
+
+            if (Number(mat.quantityUsed) < 0) {
+                mat.quantityUsed = 0;
+                M.toast({ html: 'Quantity cannot be negative', classes: 'orange' });
+            }
+
+            // 2. Prevent exceeding the limit (your existing logic)
+            if (Number(mat.quantityUsed) > Number(mat.quantity)) {
+                M.toast({ html: `Cannot exceed ${mat.quantity}`, classes: 'red' });
+            }
+        },
+
+        // Stub for your existing image logic
+        handleImagePicker(n) {
+            // call your imagePickerForMaterial_X_complete() methods here
+            console.log("Opening Camera for Material", n);
+        },
+
         async submitWorkCompleteForm() {
+
+            // Step A: Check Materials
+            for (let mat of this.requisitionData) {
+                const used = Number(mat.quantityUsed || 0);
+                const limit = Number(mat.quantity);
+
+                if (used > limit) {
+                    M.toast({ html: `FAILED: Usage for ${mat.description} exceeds limit!`, classes: 'red' });
+                    return; // Stop the form from submitting
+                }
+
+                // Hard block for negative values
+                if (used < 0) {
+                    M.toast({ html: `Invalid quantity for ${mat.description}`, classes: 'red' });
+                    return;
+                }
+
+                if (mat.quantityUsed === '') {
+                    M.toast({ html: `Please enter quantity for ${mat.description}`, classes: 'orange' });
+                    return;
+                }
+            }
+
+            // Step B: Check Text Fields
+            if (!this.further_remarks) {
+                M.toast({ html: 'Please fill in Work Done', classes: 'orange' });
+                return;
+            }
+            // if (!this.further_remarks || !this.sla_comments) {
+            //     M.toast({ html: 'Please fill in remarks and SLA comments', classes: 'orange' });
+            //     return;
+            // }
+
+            // Step C: Prepare stockData Payload
+            const stockData = this.requisitionData.map(mat => ({
+                id: mat.id.toString(),
+                item: mat.item,
+                quantityUsed: Number(mat.quantityUsed)
+            }));
+
+
+
+
+
+
 
             this.hidePreLoader = false;
 
@@ -2588,7 +2780,7 @@ export default {
                 console.log(this.work_order_id);
                 console.log(userID);
                 // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/workdoneCapture', {
+                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/workdoneCapture', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2602,6 +2794,7 @@ export default {
                         location: this.location,
                         workOrderId: this.work_order_id,
                         userId: userID,
+                        stockData: stockData,
                         picMaterial1: this.mat1.name,
                         picMaterial2: this.mat2.name,
                         picMaterial3: this.mat3.name,
@@ -2639,12 +2832,26 @@ export default {
 
         },
 
+        checkDevice() {
+            if (process.client) {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                // Logic: Check if User Agent contains common mobile strings
+                const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+                // Handle newer iPads that pretend to be Macs
+                const isIPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+                // Block only if it is NOT a mobile user agent
+                this.isDesktop = !(isMobileUA || isIPad);
+            }
+        },
+
     },
 
     mounted() {
         // Initialize MaterializeCSS Select
         // 3. Call the fetch function when the component is mounted
         this.fetchWorkOrderDetails();
+        this.checkDevice();
 
         // Initialize MaterializeCSS Select
         const elems = document.querySelectorAll("select");
@@ -2680,6 +2887,24 @@ export default {
 
 
 <style scoped>
+/* Ensure inputs don't disappear on smaller mobile screens */
+input[type=number] {
+    border-bottom: 1px solid #9e9e9e !important;
+}
+
+input[type=number]:focus {
+    border-bottom: 1px solid #d32f2f !important;
+    box-shadow: 0 1px 0 0 #d32f2f !important;
+}
+
+.collection-item {
+    background-color: #fff !important;
+}
+
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
 /* === Red Material Select Customization === */
 .custom-select {
     /* border: 1px solid #f44336 !important; */
@@ -2720,5 +2945,25 @@ input.select-dropdown:focus {
 .on-top {
     position: relative;
     z-index: 10;
+}
+</style>
+
+<style scoped>
+.desktop-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-width {
+    width: 100%;
+    margin: 0;
 }
 </style>

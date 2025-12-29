@@ -9,7 +9,7 @@ export async function getFaltTickets() {
     const validToken = localStorage.getItem("token"); 
 
     const rawResponse = await fetch(
-      "https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/fault/ticket?status=PENDING",
+      "https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/fault/ticket?status=PENDING",
       {
         method: "GET",
         headers: {
@@ -45,7 +45,7 @@ export async function getUndertakingUnits(businessUnit) {
     const validToken = localStorage.getItem("token"); 
     
     // Construct the URL with the dynamic BU parameter
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getUTInfo?bu=${businessUnit}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/getUTInfo?bu=${businessUnit}`;
 
     const rawResponse = await fetch(
       apiUrl,
@@ -92,7 +92,7 @@ export async function getFaultCategories() {
     const validToken = localStorage.getItem("token"); 
     
     // API endpoint for fault categories
-    const apiUrl = "https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getFaultCategoryOptions";
+    const apiUrl = "https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/getFaultCategoryOptions";
 
     const rawResponse = await fetch(
       apiUrl,
@@ -144,7 +144,7 @@ export async function getFaultTicketDetailsById(id) {
     const validToken = localStorage.getItem("token"); 
     
     // Construct the URL with the dynamic ID
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/fault/getById?id=${id}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/fault/getById?id=${id}`;
 
     const rawResponse = await fetch(
       apiUrl,
@@ -191,7 +191,7 @@ export async function reasignFault(id, bu, ut, techLead) {
     const validToken = localStorage.getItem("token"); 
     
     // Construct the URL with the dynamic ID
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/fault/reassign?faultId=${id}&bu=${bu}&ut=${ut}&techLead=${techLead}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/fault/reassign?faultId=${id}&bu=${bu}&ut=${ut}&techLead=${techLead}`;
 
     const rawResponse = await fetch(
       apiUrl,
@@ -235,7 +235,7 @@ export async function reasignFault(id, bu, ut, techLead) {
 export async function materialRequiredSignal(id) {
   try {
     const validToken = localStorage.getItem("token"); 
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/materialRequiredById?id=${id}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/materialRequiredById?id=${id}`;
 
     const rawResponse = await fetch(apiUrl, {
         method: "GET",
@@ -264,7 +264,7 @@ export async function getMaterialsByBU(bu, searchString = "") {
   try {
     const validToken = localStorage.getItem("token"); 
     // Pass the searchString parameter to the API
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/getMaterialInfo?bu=${bu}&searchString=${searchString}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/getMaterialInfo?bu=${bu}&searchString=${searchString}`;
 
     const rawResponse = await fetch(apiUrl, {
         method: "GET",
@@ -292,7 +292,7 @@ export async function getMaterialsByBU(bu, searchString = "") {
 export async function acceptMaterial(id) {
   try {
     const validToken = localStorage.getItem("token"); 
-    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/materialaccepted?fault_id=${id}`;
+    const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/materialaccepted?fault_id=${id}`;
 
     const rawResponse = await fetch(apiUrl, {
         method: "GET",
@@ -643,7 +643,7 @@ export async function uploadImage(workOrder, docType, file) {
 
   try {
     // 92802433505
-    const rawResponse = await fetch("https://api.ikejaelectric.com/technicalwfrestapi/test/v1/api/v1/upload/document",
+    const rawResponse = await fetch("https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/upload/document",
 
     // const rawResponse = await fetch(
     //   "https://api.ikejaelectric.com/technicalwfrestapi/v1/api/v1/upload/document",

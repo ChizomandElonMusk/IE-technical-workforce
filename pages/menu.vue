@@ -21,6 +21,28 @@
       </div> -->
 
     <PreLoader v-if="!hidePreLoader" />
+
+    <div v-if="isDesktop" class="desktop-blocker">
+      <div class="container center-align">
+        <Logo />
+        <div class="card-panel" style="margin-top: 50px; border-radius: 15px; padding: 40px;">
+          <i class="material-icons large red-text">phonelink_lock</i>
+          <h4 class="red-text" style="font-weight: bold;">Mobile Access Only</h4>
+          <p class="grey-text text-darken-2" style="font-size: 1.2rem;">
+            The Technical Workforce portal is restricted to mobile devices for field operations.
+          </p>
+          <p>Please access this site via your <b>Smartphone Browser</b> or use the <b>Official Android App</b>.</p>
+
+          <div style="margin-top: 30px;">
+            <button class="btn-large red darken-2" style="border-radius: 8px; width: 100%;">
+              Get the mobile app from the Admininistrator
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="row">
       <div class="row">
 
@@ -54,7 +76,7 @@
             </p>
             <br>
 
-            <div v-if="!displayCountdown(8).isExpired">
+            <div v-if="!displayCountdown(value).isExpired">
               <p style="margin-top: -10px;">
                 SLA countdown:
                 <b class="yellow-text">
@@ -125,6 +147,7 @@ export default {
       scheduleList: [],
 
       hidePreLoader: true,
+      isDesktop: false,
 
     }
   },
@@ -173,13 +196,28 @@ export default {
     formatDate(date) {
       if (!date) return "N/A";
       return new Date(date).toLocaleString();
-    }
+    },
+
+
+    checkDevice() {
+            if (process.client) {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                // Logic: Check if User Agent contains common mobile strings
+                const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+                // Handle newer iPads that pretend to be Macs
+                const isIPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+                // Block only if it is NOT a mobile user agent
+                this.isDesktop = !(isMobileUA || isIPad);
+            }
+        },
 
   },
 
   mounted() {
     localStorage.setItem('service_type', '')
     localStorage.setItem('meter_number', '')
+    this.checkDevice()
     this.getTickets()
 
 
@@ -202,4 +240,23 @@ export default {
 </script>
 
 
-<style scoped></style>
+
+<style scoped>
+.desktop-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-width {
+    width: 100%;
+    margin: 0;
+}
+</style>
