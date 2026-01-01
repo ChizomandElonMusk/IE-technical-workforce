@@ -1268,10 +1268,14 @@ export default {
         async saveReassign(id, techLead) {
             this.hidePreLoader = false;
             // 1. Validate inputs
-            if (!this.business_unit || !this.undertaking_one || this.business_unit === 'Select BU' || this.undertaking_one === 'Select UT') {
+            if (!this.business_unit || this.business_unit === 'Select BU') {
                 M.toast({ html: 'Please select **BU**, **UT**, and **Technical Lead**.', classes: 'red' });
                 this.hidePreLoader = true;
                 return;
+            }
+
+            if (this.undertaking_one === 'Select UT' || !this.undertaking_one) {
+                this.undertaking_one = '';
             }
 
             // const faultId = this.getCurrentFaultId();

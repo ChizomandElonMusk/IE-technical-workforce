@@ -14,7 +14,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(4).default
 module.exports.__inject__ = function (context) {
-  add("7090f012", content, true, context)
+  add("59bd7022", content, true, context)
 };
 
 /***/ }),
@@ -24,9 +24,9 @@ module.exports.__inject__ = function (context) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2085a690_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(121);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2085a690_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2085a690_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2085a690_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_2085a690_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7212b40a_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(121);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7212b40a_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7212b40a_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7212b40a_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_7212b40a_prod_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -38,7 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".desktop-blocker[data-v-2085a690]{align-items:center;background:#f5f5f5;display:flex;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%;z-index:99999}.full-width[data-v-2085a690]{margin:0;width:100%}input[data-v-2085a690]:focus{border-bottom:1px solid #c60606!important;box-shadow:0 1px 0 0 #c60606!important}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".desktop-blocker[data-v-7212b40a]{align-items:center;background:#f5f5f5;display:flex;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%;z-index:99999}.full-width[data-v-7212b40a]{margin:0;width:100%}input[data-v-7212b40a]:focus{border-bottom:1px solid #c60606!important;box-shadow:0 1px 0 0 #c60606!important}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
@@ -53,24 +53,24 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=2085a690&scoped=true
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=7212b40a&scoped=true
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c('div', [_vm.isDesktop ? _vm._ssrNode("<div class=\"desktop-blocker\" data-v-2085a690>", "</div>", [_vm._ssrNode("<div class=\"container center-align\" data-v-2085a690>", "</div>", [_c('Logo'), _vm._ssrNode(" <div class=\"card-panel\" style=\"margin-top: 50px; border-radius: 15px; padding: 40px;\" data-v-2085a690><i class=\"material-icons large red-text\" data-v-2085a690>phonelink_lock</i> <h4 class=\"red-text\" style=\"font-weight: bold;\" data-v-2085a690>Mobile Access Only</h4> <p class=\"grey-text text-darken-2\" style=\"font-size: 1.2rem;\" data-v-2085a690>\n          The Technical Workforce portal is restricted to mobile devices for field operations.\n        </p> <p data-v-2085a690>Please access this site via your <b data-v-2085a690>Smartphone Browser</b> or use the <b data-v-2085a690>Official Android App</b>.</p> <div style=\"margin-top: 30px;\" data-v-2085a690><button class=\"btn-large red darken-2\" style=\"border-radius: 8px; width: 100%;\" data-v-2085a690>\n             Get the mobile app from the Admininistrator\n          </button></div></div>")], 2)]) : _vm._ssrNode("<div class=\"row full-width\" data-v-2085a690>", "</div>", [_vm._ssrNode("<div class=\"col s12 m6\" style=\"margin-top: 130px\" data-v-2085a690>", "</div>", [_c('Logo'), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"container\" data-v-2085a690>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-2085a690>", "</div>", [_vm._ssrNode("<h5 class=\"center red-text\" data-v-2085a690>\n            Technical Workforce <br data-v-2085a690> <b class=\"center red-text\" style=\"font-weight: 300; font-size: 12px;\" data-v-2085a690>" + _vm._ssrEscape("Version: " + _vm._s(_vm.version_number)) + "</b></h5> "), _c('PreLoader', {
+  return _c('div', [_vm.isDesktop ? _vm._ssrNode("<div class=\"desktop-blocker\" data-v-7212b40a>", "</div>", [_vm._ssrNode("<div class=\"container center-align\" data-v-7212b40a>", "</div>", [_c('Logo'), _vm._ssrNode(" <div class=\"card-panel\" style=\"margin-top: 50px; border-radius: 15px; padding: 40px;\" data-v-7212b40a><i class=\"material-icons large red-text\" data-v-7212b40a>phonelink_lock</i> <h4 class=\"red-text\" style=\"font-weight: bold;\" data-v-7212b40a>Mobile Access Only</h4> <p class=\"grey-text text-darken-2\" style=\"font-size: 1.2rem;\" data-v-7212b40a>\n          The Technical Workforce portal is restricted to mobile devices for field operations.\n        </p> <p data-v-7212b40a>Please access this site via your <b data-v-7212b40a>Smartphone Browser</b> or use the <b data-v-7212b40a>Official Android App</b>.</p> <div style=\"margin-top: 30px;\" data-v-7212b40a><button class=\"btn-large red darken-2\" style=\"border-radius: 8px; width: 100%;\" data-v-7212b40a>\n             Get the mobile app from the Admininistrator\n          </button></div></div>")], 2)]) : _vm._ssrNode("<div class=\"row full-width\" data-v-7212b40a>", "</div>", [_vm._ssrNode("<div class=\"col s12 m6\" style=\"margin-top: 130px\" data-v-7212b40a>", "</div>", [_c('Logo'), _vm._ssrNode(" "), _vm._ssrNode("<div class=\"container\" data-v-7212b40a>", "</div>", [_vm._ssrNode("<div class=\"row\" data-v-7212b40a>", "</div>", [_vm._ssrNode("<h5 class=\"center red-text\" data-v-7212b40a>\n            Technical Workforce <br data-v-7212b40a> <b class=\"center red-text\" style=\"font-weight: 300; font-size: 12px;\" data-v-7212b40a>" + _vm._ssrEscape("Version: " + _vm._s(_vm.version_number)) + "</b></h5> "), _c('PreLoader', {
     staticClass: "center",
     class: {
       'hide': !_vm.loading
     }
-  })], 2), _vm._ssrNode(" <form data-v-2085a690><div class=\"row\" data-v-2085a690><div class=\"input-field col s12\" data-v-2085a690><input type=\"text\" id=\"username\"" + _vm._ssrAttr("value", _vm.username) + " class=\"black-text\" data-v-2085a690> <label for=\"username\" class=\"active\" data-v-2085a690>Username</label></div></div> <div class=\"row\" data-v-2085a690><div class=\"input-field col s12\" data-v-2085a690><input type=\"password\" id=\"password\"" + _vm._ssrAttr("value", _vm.password) + " class=\"black-text\" data-v-2085a690> <label for=\"password\" class=\"active\" data-v-2085a690>Password</label></div></div> <div class=\"row\" data-v-2085a690><div class=\"input-field col s12\" data-v-2085a690><button" + _vm._ssrAttr("disabled", _vm.disabled) + " class=\"red btn btn-large col s12\" style=\"background: linear-gradient(to right, #E75309, #C60606); border-radius: 8px;\" data-v-2085a690>\n                Login\n              </button></div></div></form>")], 2)], 2), _vm._ssrNode(" <div class=\"col s12 m6 full-width hide-on-small-and-down\"" + _vm._ssrStyle(null, {
+  })], 2), _vm._ssrNode(" <form data-v-7212b40a><div class=\"row\" data-v-7212b40a><div class=\"input-field col s12\" data-v-7212b40a><input type=\"text\" id=\"username\"" + _vm._ssrAttr("value", _vm.username) + " class=\"black-text\" data-v-7212b40a> <label for=\"username\" class=\"active\" data-v-7212b40a>Username</label></div></div> <div class=\"row\" data-v-7212b40a><div class=\"input-field col s12\" data-v-7212b40a><input type=\"password\" id=\"password\"" + _vm._ssrAttr("value", _vm.password) + " class=\"black-text\" data-v-7212b40a> <label for=\"password\" class=\"active\" data-v-7212b40a>Password</label></div></div> <div class=\"row\" data-v-7212b40a><div class=\"input-field col s12\" data-v-7212b40a><button" + _vm._ssrAttr("disabled", _vm.disabled) + " class=\"red btn btn-large col s12\" style=\"background: linear-gradient(to right, #E75309, #C60606); border-radius: 8px;\" data-v-7212b40a>\n                Login\n              </button></div></div></form>")], 2)], 2), _vm._ssrNode(" <div class=\"col s12 m6 full-width hide-on-small-and-down\"" + _vm._ssrStyle(null, {
     backgroundImage: `url(${_vm.backgroundUrl})`,
     height: '100vh',
     backgroundSize: 'cover'
-  }, null) + " data-v-2085a690></div>")], 2)]);
+  }, null) + " data-v-7212b40a></div>")], 2)]);
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=2085a690&scoped=true
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=7212b40a&scoped=true
 
 // EXTERNAL MODULE: ./assets/images/angled_background.jpg
 var angled_background = __webpack_require__(54);
@@ -101,7 +101,7 @@ var mods = __webpack_require__(45);
       backgroundUrl: angled_background_default.a,
       username: '',
       password: '',
-      version_number: '1.0',
+      version_number: '1.0.1',
       disabled: false,
       loading: false,
       // Unified loader state
@@ -230,7 +230,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   staticRenderFns,
   false,
   injectStyles,
-  "2085a690",
+  "7212b40a",
   "0e3d4e4a"
   
 )

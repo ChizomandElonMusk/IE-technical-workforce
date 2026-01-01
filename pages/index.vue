@@ -82,7 +82,7 @@ export default {
       backgroundUrl,
       username: '',
       password: '',
-      version_number: '1.0',
+      version_number: '1.0.1',
       disabled: false,
       loading: false, // Unified loader state
       lat: '',
