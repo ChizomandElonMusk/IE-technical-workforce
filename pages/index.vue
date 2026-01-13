@@ -22,11 +22,13 @@
 
     <div v-else class="row full-width">
       <div class="col s12 m6" style="margin-top: 130px">
-        <Logo />
+        <Logo class="puff-in-center " />
         <div class="container">
           <div class="row">
-            <h5 class="center red-text">
+            <h5 class="center red-text tracking-in-expand">
               Technical Workforce <br>
+            </h5>
+            <h5 class="center red-text">
               <b class="center red-text" style="font-weight: 300; font-size: 12px;">Version: {{ version_number }}</b>
             </h5>
             
@@ -80,14 +82,15 @@ export default {
   data() {
     return {
       backgroundUrl,
-      username: '',
-      password: '',
-      version_number: '1.0.1',
+      username: 'cechehieuka',
+      password: '@@@1KingGod12345678901234',
+      version_number: '1.0',
       disabled: false,
       loading: false, // Unified loader state
       lat: '',
       long: '',
       isDesktop: false,
+      staging: 'test' // Change to 'prod' for production
     }
   },
 
@@ -125,7 +128,7 @@ export default {
         this.disabled = true;
         this.loading = true;
 
-        const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/login', {   
+        const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/login`, {   
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -187,7 +190,7 @@ export default {
   },
 
   async mounted() {
-    this.checkDevice();
+    // this.checkDevice();
     this.getUsernameFromLocalStorage();
 
     try {

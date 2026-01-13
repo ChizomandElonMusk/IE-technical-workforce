@@ -217,7 +217,7 @@ export default {
   mounted() {
     localStorage.setItem('service_type', '')
     localStorage.setItem('meter_number', '')
-    this.checkDevice()
+    // this.checkDevice()
     this.getTickets()
 
 

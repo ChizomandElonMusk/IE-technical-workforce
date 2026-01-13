@@ -100,14 +100,14 @@
                                     <b>Current UT:</b>
                                     {{ work_order.currentUt }}
                                 </p>
-                                <p style="margin-top: -10px;">
+                                <!-- <p style="margin-top: -10px;">
                                     <b>DT:</b>
                                     {{ work_order.dt }}
                                 </p>
                                 <p style="margin-top: -10px;">
                                     <b>DT N0:</b>
                                     {{ work_order.dtNo }}
-                                </p>
+                                </p> -->
                                 <p style="margin-top: -10px;">
                                     <b>Fault Operations:</b>
                                     {{ work_order.faultOperations }}
@@ -115,6 +115,22 @@
                                 <p style="margin-top: -10px;">
                                     <b>Severity:</b>
                                     {{ work_order.severity }}
+                                </p>
+                                <p style="margin-top: -10px;">
+                                    <b>SR Number:</b>
+                                    {{ work_order.srNumber }}
+                                </p>
+                                <p style="margin-top: -10px;">
+                                    <b>Customer Phone:</b>
+                                    {{ work_order.customerPhone }}
+                                </p>
+                                <p style="margin-top: -10px;">
+                                    <b>Customer Email:</b>
+                                    {{ work_order.customerEmail }}
+                                </p>
+                                <p style="margin-top: -10px;">
+                                    <b>Customer Address:</b>
+                                    {{ work_order.customerAddress }}
                                 </p>
                                 <br>
                                 <p style="margin-top: -30px;">
@@ -298,6 +314,7 @@
 
         <!-- form for NO WORK MATERIALS starts here -->
         <div class="row" :class="{ 'hide': hideNoworkToolsForm }">
+        <!-- <div class="row"> -->
             <div class="col s12">
                 <h5 class="center">
                     Proof of resolution
@@ -407,6 +424,13 @@
                     <div class="row">
                         <div class="col s12">
                             <img class=" responsive-img" id="output-pic-of-mat4" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 input-field">
+                            <textarea class=" materialize-textarea" name="" id="" placeholder="Remarks"
+                                style="height: 70px;" v-model="further_remarks"></textarea>
                         </div>
                     </div>
 
@@ -941,7 +965,7 @@
 
 
 <script>
-import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, acceptMaterial, uploadImage, getCurrentPosition, getSlaHours, calculateDeadline, getTimerBreakdown } from '~/js_modules/mods.js'
+import { getFaultTicketDetailsById, getUndertakingUnits, reasignFault, getFaultCategories, getMaterialsByBU, materialRequiredSignal, materialNoRequiredSignal, acceptMaterial, uploadImage, getCurrentPosition, getSlaHours, calculateDeadline, getTimerBreakdown } from '~/js_modules/mods.js'
 import CustomSelect from '~/components/CustomSelect.vue'
 import imageCompression from 'browser-image-compression';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -1023,6 +1047,8 @@ export default {
             business_unit: '',
             undertaking_one: '',
             scheduleList: [],
+
+            staging: 'test',
 
         }
     },
@@ -1240,9 +1266,22 @@ export default {
             this.hidereasignWorkOrder = false
         },
 
-        noWorkTools() {
+        async noWorkTools() {
             this.hideworkToolsModal = true
             this.hideNoworkToolsForm = false
+            const initiate = await materialNoRequiredSignal(this.fault_id)
+             M.toast({ html: '<b class"black-text">Please wait...</b>', classes: 'black' });
+            // if (initiate.materialRequired === 'Y') {
+            //     M.toast({ html: 'Material Requisition is initiated for this Work Order.', classes: 'orange' });
+            //     this.hideworkToolsModal = true
+            //     this.hideYesworkToolsForm = false
+            //     this.hidePreLoader = true;
+            // } else {
+            //     M.toast({ html: 'There was an error initiating Material Requisition.', classes: 'red' });
+            //     this.hideworkToolsModal = false
+            //     this.hideYesworkToolsForm = true
+            //     this.hidePreLoader = true;
+            // }
 
         },
 
@@ -2570,8 +2609,8 @@ export default {
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/nomaterialrequired', {
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/nomaterialrequired`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2637,8 +2676,8 @@ export default {
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/materialrequisition', {
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/materialrequisition`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2783,8 +2822,8 @@ export default {
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/test/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch('https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/workdoneCapture', {
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/workdoneCapture`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2855,7 +2894,7 @@ export default {
         // Initialize MaterializeCSS Select
         // 3. Call the fetch function when the component is mounted
         this.fetchWorkOrderDetails();
-        this.checkDevice();
+        // this.checkDevice();
 
         // Initialize MaterializeCSS Select
         const elems = document.querySelectorAll("select");
