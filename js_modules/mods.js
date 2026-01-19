@@ -1,6 +1,6 @@
 // API CALLS FOR IE TECHNICAL WORKFORCE APP
 // js_modules/mods.js
-let staging = 'test'
+let staging = 'prod'
 // get fault tickets
 export async function getFaltTickets() {
   try {
@@ -264,6 +264,7 @@ export async function materialRequiredSignal(id) {
 
 // get material required signal by ID
 export async function materialNoRequiredSignal(id) {
+  console.log(id);
   try {
     const validToken = localStorage.getItem("token"); 
     const apiUrl = `https://api.ikejaelectric.com/technicalwfrestapi/${staging}/v1/api/v1/noMaterialRequiredById?id=${id}`;
@@ -281,8 +282,9 @@ export async function materialNoRequiredSignal(id) {
 
     
 
-    console.log(response);
+    
     const response = await rawResponse.json();
+    console.log(response);
     return response
 
   } catch (error) {

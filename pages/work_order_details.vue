@@ -159,7 +159,7 @@
                         </div>
 
                         <div class="row"
-                            v-if="work_order.reassignFlag == 'N' && work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED' && work_order.requisitionStatus != 'COMPLETED'">
+                            v-if="work_order.requisitionStatus != 'INITIATED' && work_order.requisitionStatus != 'APPROVED' && work_order.requisitionStatus != 'COMPLETED'">
 
                             <div class="col s6">
                                 <button class="btn green white-text btn-large"
@@ -192,7 +192,7 @@
                             </div>
                         </div>
 
-                        <div class="row" v-if="work_order.materialAccepted == 'Y' && work_order.reassignFlag !== 'Y'">
+                        <div class="row" v-if="work_order.materialAccepted == 'Y'">
 
                             <div class="col s12">
                                 <button class="btn green white-text btn-large col s12"
@@ -203,13 +203,13 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col s12" v-if="work_order.reassignFlag == 'Y'">
                                 <b class="red-text">
                                     This work order has been reassigned and cannot be worked on.
                                 </b>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col s12" v-if="work_order.requisitionStatus == 'INITIATED'">
                                 <b class="red-text">
@@ -314,7 +314,7 @@
 
         <!-- form for NO WORK MATERIALS starts here -->
         <div class="row" :class="{ 'hide': hideNoworkToolsForm }">
-        <!-- <div class="row"> -->
+            <!-- <div class="row"> -->
             <div class="col s12">
                 <h5 class="center">
                     Proof of resolution
@@ -720,7 +720,7 @@
                                 <li class="collection-item" v-for="(mat, index) in requisitionData" :key="index"
                                     style="padding: 15px;">
                                     <span class="title" style="font-weight: bold; color: #333;">{{ mat.description
-                                    }}</span>
+                                        }}</span>
 
                                     <div class="row" style="margin-top: 10px; margin-bottom: 0;">
                                         <div class="col s6">
@@ -846,7 +846,7 @@
 
 
                     <div class="row" v-if="!displayCountdown(work_order).isExpired">
-                        
+
                     </div>
                     <div class="row" v-else>
                         <div class="col s12 input-field">
@@ -1270,7 +1270,7 @@ export default {
             this.hideworkToolsModal = true
             this.hideNoworkToolsForm = false
             const initiate = await materialNoRequiredSignal(this.fault_id)
-             M.toast({ html: '<b class"black-text">Please wait...</b>', classes: 'black' });
+            M.toast({ html: '<b class"black-text">Please wait...</b>', classes: 'black' });
             // if (initiate.materialRequired === 'Y') {
             //     M.toast({ html: 'Material Requisition is initiated for this Work Order.', classes: 'orange' });
             //     this.hideworkToolsModal = true
@@ -1334,7 +1334,7 @@ export default {
             );
 
             // 3. Check the API result
-            if (result && result.statusMsg === "Success") { // Adjust 'SUCCESS' based on actual API response structure
+            if (result && result.statusMsg === "Success") {
                 // On Success
                 M.toast({ html: 'Work Order Reassigned Successfully! ✅', classes: 'green' });
                 this.hidereasignWorkOrder = true;
@@ -1342,7 +1342,7 @@ export default {
                 this.hidePreLoader = true;
 
             } else {
-                // On Failure (API returned an error or the status wasn't 'SUCCESS')
+                // On Failure
                 M.toast({ html: 'Reassignment failed. Please check your network.', classes: 'red' });
                 this.hidePreLoader = true;
 
@@ -2605,12 +2605,20 @@ export default {
                 this.disabled_bool = true
                 let userID = localStorage.getItem('userId')
 
-                console.log(this.fault_id);
+                console.log('this is mat1', this.mat1.name);
+                if (this.mat1.name == undefined || this.mat1.name == null || this.mat1.name == '') {
+                    M.toast({ html: `<b class="red-text">Please upload picture for Material 1</b>` })
+                    this.disabled_bool = false
+                    this.hidePreLoader = true;
+                    return;
+                }
+
+
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/nomaterialrequired`, {
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/prod/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/nomaterialrequired`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2676,8 +2684,16 @@ export default {
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/materialrequisition`, {
+
+                if (this.mat1.name == undefined || this.mat1.name == null || this.mat1.name == '') {
+                    M.toast({ html: `<b class="red-text">Please upload picture for Material 1</b>` })
+                    this.disabled_bool = false
+                    this.hidePreLoader = true;
+                    return;
+                }
+
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/prod/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/materialrequisition`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -2813,6 +2829,13 @@ export default {
 
             this.hidePreLoader = false;
 
+            if (this.mat1.name == undefined || this.mat1.name == null || this.mat1.name == '') {
+                M.toast({ html: `<b class="red-text">Please upload picture for Material 1</b>` })
+                this.disabled_bool = false
+                this.hidePreLoader = true;
+                return;
+            }
+
             try {
 
                 this.disabled_bool = true
@@ -2822,8 +2845,8 @@ export default {
                 console.log(this.location);
                 console.log(this.work_order_id);
                 console.log(userID);
-                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/${this.staging}/v1/api/v1/energyTheft', {
-                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/${this.staging}/v1/api/v1/workdoneCapture`, {
+                // const rawResponse = await fetch('https://api.ikejaelectric.com/cwfrestapi/prod/v1/api/v1/energyTheft', {
+                const rawResponse = await fetch(`https://api.ikejaelectric.com/technicalwfrestapi/prod/v1/api/v1/workdoneCapture`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',

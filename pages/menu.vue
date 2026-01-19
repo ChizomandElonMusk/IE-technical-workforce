@@ -47,6 +47,22 @@
       <div class="row">
 
         <div class="col s12 center">
+          <div class="card-panel white-text left-align"
+            style="background: linear-gradient(to right, #000000, #C60606); padding: 15px; border-radius: 10px;">
+
+            <h5 style="margin-top: 10px;">
+              DMS Service
+            </h5>
+            <br>
+
+            <button @click="openDms" class="btn white red-text"
+              style="background: #fff; border-radius: 7px; margin-top: -10px; margin-bottom: 0px;">
+              Open
+            </button>
+          </div>
+        </div>
+
+        <div class="col s12 center">
           <div v-for="value in work_order" class="card-panel white-text left-align"
             style="background: linear-gradient(to right, #E75309, #C60606); padding: 15px; border-radius: 10px;">
             <span class="yellow-text">
@@ -123,6 +139,7 @@
 
 
 <script>
+import { Browser } from '@capacitor/browser'
 import { getFaltTickets, getSlaHours, calculateDeadline, getTimerBreakdown } from '~/js_modules/mods.js'
 import PreLoader from '~/components/PreLoader.vue';
 export default {
@@ -166,6 +183,16 @@ export default {
 
     },
 
+    async openDms() {
+      if (window?.Capacitor?.isNativePlatform()) {
+        await Browser.open({
+          url: 'http://192.168.6.188:7324/accounts/login'
+        })
+      } else {
+        window.open('http://192.168.6.188:7324/accounts/login', '_blank')
+      }
+    },
+
     async getFullname() {
       // this.fullname = localStorage.getItem('fullname')
     },
@@ -200,17 +227,17 @@ export default {
 
 
     checkDevice() {
-            if (process.client) {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                // Logic: Check if User Agent contains common mobile strings
-                const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-                // Handle newer iPads that pretend to be Macs
-                const isIPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (process.client) {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        // Logic: Check if User Agent contains common mobile strings
+        const isMobileUA = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+        // Handle newer iPads that pretend to be Macs
+        const isIPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-                // Block only if it is NOT a mobile user agent
-                this.isDesktop = !(isMobileUA || isIPad);
-            }
-        },
+        // Block only if it is NOT a mobile user agent
+        this.isDesktop = !(isMobileUA || isIPad);
+      }
+    },
 
   },
 
@@ -243,20 +270,20 @@ export default {
 
 <style scoped>
 .desktop-blocker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f5f5f5;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .full-width {
-    width: 100%;
-    margin: 0;
+  width: 100%;
+  margin: 0;
 }
 </style>
