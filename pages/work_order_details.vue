@@ -1048,7 +1048,7 @@ export default {
             undertaking_one: '',
             scheduleList: [],
 
-            staging: 'test',
+            staging: 'prod',
 
         }
     },

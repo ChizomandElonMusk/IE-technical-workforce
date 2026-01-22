@@ -84,7 +84,7 @@ export default {
       backgroundUrl,
       username: '',
       password: '@@@1KingGod12345678901234',
-      version_number: '1.0.2',
+      version_number: '1.0.3',
       disabled: false,
       loading: false, // Unified loader state
       lat: '',

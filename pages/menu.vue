@@ -46,7 +46,7 @@
     <div class="row">
       <div class="row">
 
-        <div class="col s12 center">
+        <!-- <div class="col s12 center">
           <div class="card-panel white-text left-align"
             style="background: linear-gradient(to right, #000000, #C60606); padding: 15px; border-radius: 10px;">
 
@@ -60,7 +60,7 @@
               Open
             </button>
           </div>
-        </div>
+        </div> -->
 
         <div class="col s12 center">
           <div v-for="value in work_order" class="card-panel white-text left-align"
